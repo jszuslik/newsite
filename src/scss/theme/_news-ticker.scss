@@ -7,7 +7,15 @@
   }
   .top-news {
     float: left;
-    width: 35%;
+    width: 75%;
+
+    a {
+      width: 100%;
+
+      &:hover {
+        text-decoration: none;
+      }
+    }
   }
   .top-news-title {
     display: block;
@@ -20,15 +28,17 @@
     margin-left: -500px;
     padding: 8px 6px 9px 500px;
     position: relative;
+
+    &::after {
+      content: "";
+      display: inline;
+      float: right;
+      position: absolute;
+      right: -16px;
+      bottom: 0;
+    }
   }
-  .top-news-title::after {
-    content: "";
-    display: inline;
-    float: right;
-    position: absolute;
-    right: -16px;
-    bottom: 0;
-  }
+
   #news-ticker {
     float: left;
     font-size: 14px;
@@ -36,123 +46,150 @@
     margin: 9px 0 6px 20px;
     max-height: 21px;
     overflow: hidden;
+    width: 300px;
   }
-  .top-news a {
-    width: 100%;
-  }
-  .tophead.ticker-primary {
+
+  .ticker-primary {
     background-color: $nrw-primary-dark;
-  }
-  .ticker-primary .top-news-title {
-    background-color: $nrw-primary-light;
-    color: $nrw-primary-dark;
-  }
-  .ticker-primary .top-news-title::after {
-    border-left: 16px solid $nrw-primary-light;
-    border-top: 41px solid $nrw-primary-dark;
-  }
-  .ticker-primary .top-news a {
-    color: #ffffff;
+
+    .top-news-title {
+      background-color: $nrw-primary-light;
+      color: $nrw-primary-dark;
+
+      &::after {
+        border-left: 16px solid $nrw-primary-light;
+        border-top: 41px solid $nrw-primary-dark;
+      }
+    }
+
+    .top-news a {
+      color: $nrw-primary-light;
+    }
   }
 
-  .tophead.ticker-secondary {
-    background-color: #2e3133;
-  }
-  .ticker-secondary .top-news-title {
-    background-color: #e7e8ea;
-    color: #2e3133;
-  }
-  .ticker-secondary .top-news-title::after {
-    border-left: 16px solid #e7e8ea;
-    border-top: 41px solid #2e3133;
-  }
-  .ticker-secondary .top-news a {
-    color: #ffffff;
+  .ticker-secondary {
+    background-color: $nrw-secondary-dark;
+
+    .top-news-title {
+      background-color: $nrw-secondary-light;
+      color: $nrw-secondary-dark;
+
+      &::after {
+        border-left: 16px solid $nrw-secondary-light;
+        border-top: 41px solid $nrw-secondary-dark;
+      }
+    }
+    .top-news a {
+      color: $nrw-secondary-light;
+    }
   }
 
-  .tophead.ticker-success {
-    background-color: #155724;
+  .ticker-success {
+    background-color: $nrw-success-dark;
+
+    .top-news-title {
+      background-color: $nrw-success-light;
+      color: $nrw-success-dark;
+
+      &::after {
+        border-left: 16px solid $nrw-success-light;
+        border-top: 41px solid $nrw-success-dark;
+      }
+    }
+
+    .top-news a {
+      color: $nrw-success-light;
+    }
   }
-  .ticker-success .top-news-title {
-    background-color: #d4edda;
-    color: #155724;
+
+  .ticker-danger {
+    background-color: $nrw-danger-dark;
+
+    .top-news-title {
+      background-color: $nrw-danger-light;
+      color: $nrw-danger-dark;
+
+      &::after {
+        border-left: 16px solid $nrw-danger-light;
+        border-top: 41px solid $nrw-danger-dark;
+      }
+    }
+
+    .top-news a {
+      color: $nrw-danger-light;
+    }
   }
-  .ticker-success .top-news-title::after {
-    border-left: 16px solid #d4edda;
-    border-top: 41px solid #155724;
+
+  .ticker-warning {
+    background-color: $nrw-warning-dark;
+
+    .top-news-title {
+      background-color: $nrw-warning-light;
+      color: $nrw-warning-dark;
+
+      &::after {
+        border-left: 16px solid $nrw-warning-light;
+        border-top: 41px solid $nrw-warning-dark;
+      }
+    }
+
+    .top-news a {
+      color: $nrw-warning-light;
+    }
   }
-  .ticker-success .top-news a {
-    color: #ffffff;
+
+  .ticker-info {
+    background-color: $nrw-info-dark;
+
+    .top-news-title {
+      background-color: $nrw-info-light;
+      color: $nrw-info-dark;
+
+      &::after {
+        border-left: 16px solid $nrw-info-light;
+        border-top: 41px solid $nrw-info-dark;
+      }
+    }
+
+    .top-news a {
+      color: $nrw-info-light;
+    }
   }
-  .tophead.ticker-danger {
-    background-color: #721c24;
+
+  .ticker-light {
+    background-color: $nrw-light-dark;
+
+    .top-news-title {
+      background-color: $nrw-light-light;
+      color: $nrw-light-dark;
+
+      &::after {
+        border-left: 16px solid $nrw-light-light;
+        border-top: 41px solid $nrw-light-dark;
+      }
+    }
+
+    .top-news a {
+      color: $nrw-light-light;
+    }
   }
-  .ticker-danger .top-news-title {
-    background-color: #f8d7da;
-    color: #721c24;
-  }
-  .ticker-danger .top-news-title::after {
-    border-left: 16px solid #f8d7da;
-    border-top: 41px solid #721c24;
-  }
-  .ticker-danger .top-news a {
-    color: #ffffff;
-  }
-  .tophead.ticker-warning {
-    background-color: #856404;
-  }
-  .ticker-warning .top-news-title {
-    background-color: #fff3cd;
-    color: #856404;
-  }
-  .ticker-warning .top-news-title::after {
-    border-left: 16px solid #fff3cd;
-    border-top: 41px solid #856404;
-  }
-  .ticker-warning .top-news a {
-    color: #ffffff;
-  }
-  .tophead.ticker-info {
-    background-color: #0c5460;
-  }
-  .ticker-info .top-news-title {
-    background-color: #d1ecf1;
-    color: #0c5460;
-  }
-  .ticker-info .top-news-title::after {
-    border-left: 16px solid #d1ecf1;
-    border-top: 41px solid #0c5460;
-  }
-  .ticker-info .top-news a {
-    color: #ffffff;
-  }
-  .tophead.ticker-light {
-    background-color: #818182;
-  }
-  .ticker-light .top-news-title {
-    background-color: #fefefe;
-    color: #818182;
-  }
-  .ticker-light .top-news-title::after {
-    border-left: 16px solid #fefefe;
-    border-top: 41px solid #818182;
-  }
-  .ticker-light .top-news a {
-    color: #ffffff;
-  }
-  .tophead.ticker-dark {
-    background-color: #1b1e21;
-  }
-  .ticker-dark .top-news-title {
-    background-color: #d6d8d9;
-    color: #1b1e21;
-  }
-  .ticker-dark .top-news-title::after {
-    border-left: 16px solid #d6d8d9;
-    border-top: 41px solid #1b1e21;
-  }
-  .ticker-dark .top-news a {
-    color: #ffffff;
+
+  .ticker-dark {
+    background-color: $nrw-dark-dark;
+
+    .top-news-title {
+      background-color: $nrw-dark-light;
+      color: $nrw-dark-dark;
+
+      &::after {
+        border-left: 16px solid $nrw-dark-light;
+        border-top: 41px solid $nrw-dark-dark;
+      }
+    }
+
+    .top-news a {
+      color: $nrw-dark-light;
+    }
   }
 }
 @include media-breakpoint-up(sm) {  }

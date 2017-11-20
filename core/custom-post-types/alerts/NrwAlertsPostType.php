@@ -11,6 +11,8 @@ class NrwAlertsPostType {
     public function init() {
         add_action('init', array($this, 'nrw_alerts'));
         add_action('nrw_alert_ticker_action', array($this, 'get_alerts'));
+        add_action( 'wp_footer', array($this, 'enable_news_slider') );
+
     }
 
     public function nrw_alerts() {
@@ -99,6 +101,23 @@ class NrwAlertsPostType {
         }
         return $output;
     }
+
+    public function enable_news_slider() { ?>
+        <script type="text/javascript">
+            jQuery(document).ready( function($) {
+                $('.news-ticker-inner-wrap').slick({
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    autoplay: true,
+                    autoplaySpeed: 5000,
+                    fade: true,
+                    cssEase: 'linear',
+                    arrows: false
+                });
+            });
+        </script>
+    <?php }
+
 
 }
 $nrwalertsporttype = new NrwAlertsPostType();
