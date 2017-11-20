@@ -62,7 +62,8 @@ class NrwFrontendCss {
                 color: <?php echo $navbar_link_color; ?>;
             }
 
-            .nrw-navbar-custom a:hover {
+            .nrw-navbar-custom a:hover,
+            .nrw-navbar-custom .active a {
                  color: <?php echo $navbar_link_hover_color; ?>;
             }
 
