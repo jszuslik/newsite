@@ -38,12 +38,12 @@ class NrwHeaderSetup {
 		);
 		$wp_customize->add_control(
 			'theme_options[fixed_header]',
-				array(
-					'label'    => __( 'Fixed Header', NRW_TXT_DOMAIN ),
-					'section'  => 'section_header',
-					'type'     => 'checkbox',
-					'priority' => 100,
-				)
+            array(
+                'label'    => __( 'Fixed Header', NRW_TXT_DOMAIN ),
+                'section'  => 'section_header',
+                'type'     => 'checkbox',
+                'priority' => 100,
+            )
 		);
 		$wp_customize->add_setting(
 			'theme_options[show_ticker]',
@@ -81,6 +81,24 @@ class NrwHeaderSetup {
 				'active_callback' => array( 'NrwCallback', 'is_news_ticker_active' )
 			)
 		);
+		$wp_customize->add_setting(
+		    'theme_options[ticker_title]',
+            array(
+                'default'            => $this->default['ticker_title'],
+                'capability'         => 'edit_theme_options',
+                'sanatize_callback'  => 'sanitize_text_field'
+            )
+        );
+		$wp_customize->add_control(
+		    'theme_options[ticker_title]',
+            array(
+                'label'             => __('Ticker Title', NRW_TXT_DOMAIN),
+                'section'           => 'section_header',
+                'type'              => 'text',
+                'priority'          => 100,
+                'active_callback' => array( 'NrwCallback', 'is_news_ticker_active' )
+            )
+        );
 	}
 
 }

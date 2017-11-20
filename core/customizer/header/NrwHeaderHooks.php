@@ -12,6 +12,7 @@ class NrwHeaderHooks {
 
 	public function init() {
 		add_action('nrw_action_before_header', array($this, 'header_start'), 5);
+        add_action('nrw_action_before_header', array($this, 'news_ticker'), 10);
 		add_action('nrw_action_after_header', array($this, 'header_end'), 15);
 	}
 
@@ -34,11 +35,11 @@ class NrwHeaderHooks {
 				<div class="container">
 					<div class="top-news">
 						<div class="ticker" role="alert">
-                        <span class="top-news-title">
-                            <?php $ticker_title = OmniCore::omni_wp_theme_get_option( 'ticker_title' );  ?>
-                            <?php echo ( ! empty( $ticker_title ) ) ? esc_html( $ticker_title ) : '&nbsp;'; ?>
-                        </span>
-							<?php echo OmniCommon::omni_wp_theme_get_new_ticker_content(); ?>
+                            <span class="top-news-title">
+                                <?php $ticker_title = NrwCore::get_option( 'ticker_title' );  ?>
+                                <?php echo ( ! empty( $ticker_title ) ) ? esc_html( $ticker_title ) : '&nbsp;'; ?>
+                            </span>
+							<?php do_action('nrw_alert_ticker_action'); ?>
 						</div>
 					</div>
 				</div>

@@ -86,9 +86,9 @@ class NrwSetup {
 		if ($this->production) {
 			wp_enqueue_script('nrw-script', get_template_directory_uri() . '/assets/js/scripts.min.js', array('jquery'), false, true);
 		} else {
-			wp_enqueue_script('omni-script', get_template_directory_uri() . '/assets/js/scripts.js', array('jquery'), false, true);
+			wp_enqueue_script('nrw-script', get_template_directory_uri() . '/assets/js/scripts.js', array('jquery'), false, true);
 		}
-		wp_enqueue_style('omni-google-fonts', 'https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,700,700i|Roboto:400,400i,500,500i,700,700i');
+		wp_enqueue_style('nrw-google-fonts', 'https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,700,700i|Roboto:400,400i,500,500i,700,700i');
 
 	}
 
