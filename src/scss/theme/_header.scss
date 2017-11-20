@@ -1,0 +1,159 @@
+.nrw-header-bg-primary {
+  background-color: $nrw-primary-dark;
+
+  .navbar-brand {
+	color: $nrw-primary-light;
+  }
+}
+
+.nrw-header-bg-secondary {
+  background-color: $nrw-secondary-dark;
+
+  .navbar-brand {
+	color: $nrw-secondary-light;
+  }
+}
+
+.nrw-header-bg-success {
+  background-color: $nrw-success-dark;
+
+  .navbar-brand {
+	color: $nrw-success-light;
+  }
+}
+
+.nrw-header-bg-danger {
+  background-color: $nrw-danger-dark;
+
+  .navbar-brand {
+	color: $nrw-danger-light;
+  }
+}
+
+.nrw-header-bg-warning {
+  background-color: $nrw-warning-dark;
+
+  .navbar-brand {
+	color: $nrw-warning-light;
+  }
+}
+
+.nrw-header-bg-info {
+  background-color: $nrw-info-dark;
+
+  .navbar-brand {
+	color: $nrw-info-light;
+  }
+}
+
+.nrw-header-bg-light {
+  background-color: $nrw-light-dark;
+
+  .navbar-brand {
+	color: $nrw-light-light;
+  }
+}
+
+.nrw-header-bg-dark {
+  background-color: $nrw-dark-dark;
+
+  .navbar-brand {
+	color: $nrw-dark-light;
+  }
+}
+
+.nrw-navbar-primary {
+  background-color: $nrw-primary-dark;
+
+  a {
+	color: $nrw-primary-light;
+
+	&:hover {
+	  color: $nrw-primary-hover;
+	}
+  }
+}
+
+.nrw-navbar-secondary {
+  background-color: $nrw-secondary-dark;
+
+  a {
+	color: $nrw-secondary-light;
+
+	&:hover {
+	  color: $nrw-secondary-hover;
+	}
+  }
+}
+
+.nrw-navbar-success {
+  background-color: $nrw-success-dark;
+
+  a {
+	color: $nrw-success-light;
+
+	&:hover {
+	  color: $nrw-success-hover;
+	}
+  }
+}
+
+.nrw-navbar-danger {
+  background-color: $nrw-danger-dark;
+
+  a {
+	color: $nrw-danger-light;
+
+	&:hover {
+	  color: $nrw-danger-hover;
+	}
+  }
+}
+
+.nrw-navbar-warning {
+  background-color: $nrw-warning-dark;
+
+  a {
+	color: $nrw-warning-light;
+
+	&:hover {
+	  color: $nrw-warning-hover;
+	}
+  }
+}
+
+.nrw-navbar-info {
+  background-color: $nrw-info-dark;
+
+  a {
+	color: $nrw-info-light;
+
+	&:hover {
+	  color: $nrw-info-hover;
+	}
+  }
+}
+
+.nrw-navbar-light {
+  background-color: $nrw-light-dark;
+
+  a {
+	color: $nrw-light-light;
+
+	&:hover {
+	  color: $nrw-light-hover;
+	}
+  }
+}
+
+.nrw-navbar-dark {
+  background-color: $nrw-dark-dark;
+
+  a {
+	color: $nrw-dark-light;
+
+	&:hover {
+	  color: $nrw-dark-hover;
+	}
+  }
+}

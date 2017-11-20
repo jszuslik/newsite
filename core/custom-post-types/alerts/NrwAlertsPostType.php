@@ -66,31 +66,45 @@ class NrwAlertsPostType {
             'capability_type'       => 'page',
             'show_in_rest'          => false,
         );
-        register_post_type( 'nrw_alerts', $args );
+        register_post_type( 'nrw-alerts', $args );
     }
 
     public function get_alerts() {
         $alerts = $this->get_alert_details();
         if ( empty( $alerts ) ) {
             return;
-        } ?>
-        <div id="news-ticker" style="display: inline-block;">
-            <div class="news-ticker-inner-wrap">
-                <?php foreach ($alerts as $alert) : ?>
-                    <div class="list">
-                        <a href="<?php echo esc_url( $alert['link'] ); ?>" class="alert-link"><?php echo esc_html($alert['text']); ?></a>
+        }
+        $ticker_theme = NrwCore::get_option('ticker_theme'); ?>
+			<div class="tophead ticker<?php echo $ticker_theme; ?>">
+				<div class="container">
+					<div class="top-news">
+						<div class="ticker" role="alert">
+                            <span class="top-news-title">
+                                <?php $ticker_title = NrwCore::get_option( 'ticker_title' );  ?>
+                                <?php echo ( ! empty( $ticker_title ) ) ? esc_html( $ticker_title ) : '&nbsp;'; ?>
+                            </span>
+                            <div id="news-ticker" style="display: inline-block;">
+                                <div class="news-ticker-inner-wrap">
+                                    <?php foreach ($alerts as $alert) : ?>
+                                        <div class="list">
+                                            <a href="<?php echo esc_url( $alert['link'] ); ?>" class="alert-link"><?php echo esc_html($alert['text']); ?></a>
+                                        </div>
+                                    <?php endforeach; ?>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                <?php endforeach; ?>
+                </div>
             </div>
-        </div>
         <?php
     }
 
     public function get_alert_details() {
         $output = array();
+        $posts_per_page = NrwCore::get_option('ticker_number');
         $args = array(
-            'post_type'        => 'nrw_alerts',
-            'posts_per_page'   => 5
+            'post_type'        => 'nrw-alerts',
+            'posts_per_page'   => $posts_per_page,
         );
         $alerts = get_posts($args);
         $i = 0;

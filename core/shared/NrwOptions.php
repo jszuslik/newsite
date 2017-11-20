@@ -32,4 +32,39 @@ class NrwOptions {
 
 	}
 
+	public static function get_primary_menu_alignment_options() {
+
+		$choices = array(
+			'under'       => __('Menu Under Branding', NRW_TXT_DOMAIN),
+			'inline'      => __('Menu Inline With Branding', NRW_TXT_DOMAIN)
+		);
+
+		$output = apply_filters('nrw_filter_menu_alignment_options', $choices);
+		return $output;
+
+	}
+
+	public static function content_width_options() {
+
+		$choices = array(
+			'container'          => __('Contained', NRW_TXT_DOMAIN),
+			'container-fluid'    => __('Full Width', NRW_TXT_DOMAIN)
+		);
+
+		$output = apply_filters('nrw_filter_menu_width_options', $choices);
+		return $output;
+	}
+
+	public static function text_alignment_options() {
+
+		$choices = array(
+			'left'          => __('Left', NRW_TXT_DOMAIN),
+			'center'        => __('Center', NRW_TXT_DOMAIN),
+			'right'         => __('Right', NRW_TXT_DOMAIN)
+		);
+
+		$output = apply_filters('nrw_filter_text_alignment_options', $choices);
+		return $output;
+	}
+
 }

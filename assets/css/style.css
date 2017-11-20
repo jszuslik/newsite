@@ -11636,3 +11636,163 @@ body.lb-disable-scrolling {
 .ticker-dark .top-news a {
   color: #d6d8d9;
 }
+
+.nrw-header-bg-primary {
+  background-color: #004085;
+}
+
+.nrw-header-bg-primary .navbar-brand {
+  color: #cce5ff;
+}
+
+.nrw-header-bg-secondary {
+  background-color: #2e3133;
+}
+
+.nrw-header-bg-secondary .navbar-brand {
+  color: #e7e8ea;
+}
+
+.nrw-header-bg-success {
+  background-color: #155724;
+}
+
+.nrw-header-bg-success .navbar-brand {
+  color: #d4edda;
+}
+
+.nrw-header-bg-danger {
+  background-color: #721c24;
+}
+
+.nrw-header-bg-danger .navbar-brand {
+  color: #f8d7da;
+}
+
+.nrw-header-bg-warning {
+  background-color: #856404;
+}
+
+.nrw-header-bg-warning .navbar-brand {
+  color: #fff3cd;
+}
+
+.nrw-header-bg-info {
+  background-color: #0c5460;
+}
+
+.nrw-header-bg-info .navbar-brand {
+  color: #d1ecf1;
+}
+
+.nrw-header-bg-light {
+  background-color: #818182;
+}
+
+.nrw-header-bg-light .navbar-brand {
+  color: #fefefe;
+}
+
+.nrw-header-bg-dark {
+  background-color: #1b1e21;
+}
+
+.nrw-header-bg-dark .navbar-brand {
+  color: #d6d8d9;
+}
+
+.nrw-navbar-primary {
+  background-color: #004085;
+}
+
+.nrw-navbar-primary a {
+  color: #cce5ff;
+}
+
+.nrw-navbar-primary a:hover {
+  color: #56CFFF;
+}
+
+.nrw-navbar-secondary {
+  background-color: #2e3133;
+}
+
+.nrw-navbar-secondary a {
+  color: #e7e8ea;
+}
+
+.nrw-navbar-secondary a:hover {
+  color: #9a9b9e;
+}
+
+.nrw-navbar-success {
+  background-color: #155724;
+}
+
+.nrw-navbar-success a {
+  color: #d4edda;
+}
+
+.nrw-navbar-success a:hover {
+  color: #67ed9b;
+}
+
+.nrw-navbar-danger {
+  background-color: #721c24;
+}
+
+.nrw-navbar-danger a {
+  color: #f8d7da;
+}
+
+.nrw-navbar-danger a:hover {
+  color: #f8897e;
+}
+
+.nrw-navbar-warning {
+  background-color: #856404;
+}
+
+.nrw-navbar-warning a {
+  color: #fff3cd;
+}
+
+.nrw-navbar-warning a:hover {
+  color: #ffe47a;
+}
+
+.nrw-navbar-info {
+  background-color: #0c5460;
+}
+
+.nrw-navbar-info a {
+  color: #d1ecf1;
+}
+
+.nrw-navbar-info a:hover {
+  color: #89dcf1;
+}
+
+.nrw-navbar-light {
+  background-color: #818182;
+}
+
+.nrw-navbar-light a {
+  color: #fefefe;
+}
+
+.nrw-navbar-light a:hover {
+  color: #b6b6b6;
+}
+
+.nrw-navbar-dark {
+  background-color: #1b1e21;
+}
+
+.nrw-navbar-dark a {
+  color: #d6d8d9;
+}
+
+.nrw-navbar-dark a:hover {
+  color: #8e8f90;
+}
