@@ -23,6 +23,7 @@ class NrwFrontendCss {
 		$navbar_bg_color = NrwCore::get_option('navbar_bg_color');
 		$navbar_link_color = NrwCore::get_option('navbar_link_color');
 		$navbar_link_hover_color = NrwCore::get_option('navbar_link_hover_color');
+		$navbar_link_side_padding = NrwCore::get_option('menu_item_padding');
 		?>
 		<style id="nrw-frontend-custom-css">
 
@@ -57,14 +58,22 @@ class NrwFrontendCss {
             .nrw-navbar-custom {
                 background-color: <?php echo $navbar_bg_color; ?>;
             }
+            .navbar .navbar-nav .nav-item .nav-link {
+                padding-left: <?php echo $navbar_link_side_padding; ?>px;
+                padding-right: <?php echo $navbar_link_side_padding; ?>px;
+            }
 
-            .nrw-navbar-custom a {
+            .nrw-navbar-custom .nav-item .nav-link {
                 color: <?php echo $navbar_link_color; ?>;
             }
 
-            .nrw-navbar-custom a:hover,
-            .nrw-navbar-custom .active a {
+            .nrw-navbar-custom .nav-item .nav-link:hover {
                  color: <?php echo $navbar_link_hover_color; ?>;
+            }
+
+            .nrw-navbar-custom .nav-item.active::after,
+            .nrw-navbar-custom .nav-item::after {
+                background: <?php echo $navbar_link_hover_color; ?>;
             }
 
 		</style>

@@ -14,3 +14,28 @@
   GitHub Theme URI: https://github.com/jszuslik/tbd
 */
 @import "assets/css/style.css";
+
+.navbar-brand h1 span {
+    font-family: 'Anders', 'Roboto', sans-serif;
+    display: block;
+    text-align: center;
+}
+
+.navbar-brand h1 span.brand-word-1 {
+    font-size: 50px;
+    letter-spacing: -5px;
+    line-height: 43px;
+}
+.navbar-brand h1 span.brand-word-2 {
+    color: #fff;
+    font-size: 23px;
+    text-align: center;
+    padding-left: 8px;
+    line-height: 23px;
+}
+.navbar-brand h1 span.brand-word-3 {
+    text-align: center;
+    font-size: 33.5px;
+    padding-left: 8px;
+    line-height: 28px;
+}

@@ -175,6 +175,23 @@ class NrwHeaderSetup {
 			)
 		);
 		$wp_customize->add_setting(
+			'theme_options[brand_custom_css]',
+			array(
+				'default'             => $this->default['brand_custom_css'],
+				'capability'          => 'edit_theme_options',
+				'sanitize_callback'   => array( 'NrwSanitize', 'sanitize_checkbox')
+			)
+		);
+		$wp_customize->add_control(
+			'theme_options[brand_custom_css]',
+			array(
+				'label'    => __( 'Use Custom Css for Brand', NRW_TXT_DOMAIN ),
+				'section'  => 'section_header',
+				'type'     => 'checkbox',
+				'priority' => 100,
+			)
+		);
+		$wp_customize->add_setting(
 			'theme_options[branding_container_width]',
 			array(
 				'default'           => $this->default['branding_container_width'],
@@ -189,7 +206,27 @@ class NrwHeaderSetup {
 				'section'         => 'section_header',
 				'type'            => 'select',
 				'choices'         => NrwOptions::content_width_options(),
-				'priority'        => 100
+				'priority'        => 100,
+				'active_callback' => array('NrwCallback', 'is_news_menu_under_branding')
+			)
+		);
+		$wp_customize->add_setting(
+			'theme_options[branding_menu_container_width]',
+			array(
+				'default'           => $this->default['branding_menu_container_width'],
+				'capability'        => 'edit_theme_options',
+				'sanitize_callback' => array('NrwSanitize', 'sanitize_select')
+			)
+		);
+		$wp_customize->add_control(
+			'theme_options[branding_menu_container_width]',
+			array(
+				'label'           => __( 'Header Container Width', NRW_TXT_DOMAIN ),
+				'section'         => 'section_header',
+				'type'            => 'select',
+				'choices'         => NrwOptions::content_width_options(),
+				'priority'        => 100,
+				'active_callback' => array('NrwCallback', 'is_news_menu_inline_branding')
 			)
 		);
 		$wp_customize->add_setting(
@@ -207,7 +244,8 @@ class NrwHeaderSetup {
 				'section'         => 'section_header',
 				'type'            => 'select',
 				'choices'         => NrwOptions::text_alignment_options(),
-				'priority'        => 100
+				'priority'        => 100,
+				'active_callback' => array('NrwCallback', 'is_news_menu_under_branding')
 			)
 		);
 		$wp_customize->add_setting(
@@ -225,7 +263,8 @@ class NrwHeaderSetup {
 				'section'         => 'section_header',
 				'type'            => 'select',
 				'choices'         => NrwOptions::content_width_options(),
-				'priority'        => 100
+				'priority'        => 100,
+				'active_callback' => array('NrwCallback', 'is_news_menu_under_branding')
 			)
 		);
         $wp_customize->add_setting(
@@ -246,6 +285,23 @@ class NrwHeaderSetup {
                 'priority'        => 100
             )
         );
+		$wp_customize->add_setting( 'theme_options[menu_item_padding]',
+			array(
+				'default'           => $this->default['menu_item_padding'],
+				'capability'        => 'edit_theme_options',
+				'sanitize_callback' => array( 'NrwSanitize', 'sanitize_positive_integer'),
+			)
+		);
+		$wp_customize->add_control( 'theme_options[menu_item_padding]',
+			array(
+				'label'           => __( 'Nav Item Side Padding', NRW_TXT_DOMAIN ),
+				'section'         => 'section_header',
+				'type'            => 'number',
+				'priority'        => 100,
+				'active_callback' => array( 'NrwCallback', 'is_not_justify_alignment'),
+				'input_attrs'     => array( 'min' => 0, 'max' => 100, 'style' => 'width: 55px;' ),
+			)
+		);
 		$wp_customize->add_setting(
 			'theme_options[header_bg_color_select]',
 			array(

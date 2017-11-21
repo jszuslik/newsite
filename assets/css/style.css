@@ -11705,96 +11705,160 @@ body.lb-disable-scrolling {
   background-color: #004085;
 }
 
-.nrw-navbar-primary a {
+.nrw-navbar-primary .nav-item .nav-link {
   color: #cce5ff;
 }
 
-.nrw-navbar-primary a:hover {
+.nrw-navbar-primary .nav-item .nav-link:hover {
   color: #56CFFF;
+}
+
+.nrw-navbar-primary .nav-item.active::after {
+  background: #56CFFF;
+}
+
+.nrw-navbar-primary .nav-item::after {
+  background: #56CFFF;
 }
 
 .nrw-navbar-secondary {
   background-color: #2e3133;
 }
 
-.nrw-navbar-secondary a {
+.nrw-navbar-secondary .nav-item .nav-link {
   color: #e7e8ea;
 }
 
-.nrw-navbar-secondary a:hover {
+.nrw-navbar-secondary .nav-item .nav-link:hover {
   color: #9a9b9e;
+}
+
+.nrw-navbar-secondary .nav-item.active::after {
+  background: #9a9b9e;
+}
+
+.nrw-navbar-secondary .nav-item::after {
+  background: #9a9b9e;
 }
 
 .nrw-navbar-success {
   background-color: #155724;
 }
 
-.nrw-navbar-success a {
+.nrw-navbar-success .nav-item .nav-link {
   color: #d4edda;
 }
 
-.nrw-navbar-success a:hover {
+.nrw-navbar-success .nav-item .nav-link:hover {
   color: #67ed9b;
+}
+
+.nrw-navbar-success .nav-item.active::after {
+  background: #67ed9b;
+}
+
+.nrw-navbar-success .nav-item::after {
+  background: #67ed9b;
 }
 
 .nrw-navbar-danger {
   background-color: #721c24;
 }
 
-.nrw-navbar-danger a {
+.nrw-navbar-danger .nav-item .nav-link {
   color: #f8d7da;
 }
 
-.nrw-navbar-danger a:hover {
+.nrw-navbar-danger .nav-item .nav-link:hover {
   color: #f8897e;
+}
+
+.nrw-navbar-danger .nav-item.active::after {
+  background: #f8897e;
+}
+
+.nrw-navbar-danger .nav-item::after {
+  background: #f8897e;
 }
 
 .nrw-navbar-warning {
   background-color: #856404;
 }
 
-.nrw-navbar-warning a {
+.nrw-navbar-warning .nav-item .nav-link {
   color: #fff3cd;
 }
 
-.nrw-navbar-warning a:hover {
+.nrw-navbar-warning .nav-item .nav-link:hover {
   color: #ffe47a;
+}
+
+.nrw-navbar-warning .nav-item.active::after {
+  background: #ffe47a;
+}
+
+.nrw-navbar-warning .nav-item::after {
+  background: #ffe47a;
 }
 
 .nrw-navbar-info {
   background-color: #0c5460;
 }
 
-.nrw-navbar-info a {
+.nrw-navbar-info .nav-item .nav-link {
   color: #d1ecf1;
 }
 
-.nrw-navbar-info a:hover {
+.nrw-navbar-info .nav-item .nav-link:hover {
   color: #89dcf1;
+}
+
+.nrw-navbar-info .nav-item.active::after {
+  background: #89dcf1;
+}
+
+.nrw-navbar-info .nav-item::after {
+  background: #89dcf1;
 }
 
 .nrw-navbar-light {
   background-color: #818182;
 }
 
-.nrw-navbar-light a {
+.nrw-navbar-light .nav-item .nav-link {
   color: #fefefe;
 }
 
-.nrw-navbar-light a:hover {
+.nrw-navbar-light .nav-item .nav-link:hover {
   color: #b6b6b6;
+}
+
+.nrw-navbar-light .nav-item.active::after {
+  background: #b6b6b6;
+}
+
+.nrw-navbar-light .nav-item::after {
+  background: #b6b6b6;
 }
 
 .nrw-navbar-dark {
   background-color: #1b1e21;
 }
 
-.nrw-navbar-dark a {
+.nrw-navbar-dark .nav-item .nav-link {
   color: #d6d8d9;
 }
 
-.nrw-navbar-dark a:hover {
+.nrw-navbar-dark .nav-item .nav-link:hover {
   color: #8e8f90;
+}
+
+.nrw-navbar-dark .nav-item.active::after {
+  background: #8e8f90;
+}
+
+.nrw-navbar-dark .nav-item::after {
+  background: #8e8f90;
 }
 
 .navbar .navbar-nav {
@@ -11805,6 +11869,7 @@ body.lb-disable-scrolling {
 
 .navbar .navbar-nav .nav-item {
   position: relative;
+  display: inline-block;
 }
 
 .navbar .navbar-nav .nav-item .nav-link {
@@ -11814,11 +11879,10 @@ body.lb-disable-scrolling {
 
 .navbar .navbar-nav .nav-item.active::after {
   content: "";
-  background: blue;
-  height: 10px;
+  height: 6px;
   position: absolute;
   transition: .16s all 0.025s;
-  bottom: -4px;
+  bottom: -2px;
   display: block;
   width: 100%;
   left: 0;
@@ -11826,12 +11890,11 @@ body.lb-disable-scrolling {
 
 .navbar .navbar-nav .nav-item::after {
   content: "";
-  background: blue;
-  height: 10px;
+  height: 6px;
   position: absolute;
   transition: .16s all 0.025s;
   left: 100%;
-  bottom: -4px;
+  bottom: -2px;
   right: 0;
 }
 
@@ -11843,6 +11906,14 @@ body.lb-disable-scrolling {
 .navbar .navbar-nav .nav-item:hover::after {
   left: 0;
   right: 0;
+}
+
+.navbar.nrw-navbar-inline .nav-item.active::after {
+  bottom: -45px;
+}
+
+.navbar.nrw-navbar-inline .nav-item::after {
+  bottom: -45px;
 }
 
 .navbar.left .navbar-nav {

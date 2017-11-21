@@ -20,6 +20,7 @@ class NrwCustomizer {
 		$wp_customize->get_setting( 'blogdescription' )->transport = 'postMessage';
 		nrw_require_file(NRW_CORE_PATH . 'customizer/NrwThemeOptionsSetup.php');
 		nrw_require_file(NRW_CORE_PATH . 'customizer/header/NrwHeaderSetup.php');
+		nrw_require_file(NRW_CORE_PATH . 'customizer/jumbotron/NrwJumbotronSetup.php');
 	}
 
 	public function scripts() {

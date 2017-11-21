@@ -11,7 +11,7 @@ function nrw_require_file( $path ) {
 nrw_require_file( NRW_CORE_PATH . 'NrwInit.php' );
 
 function p($var) {
-	$is_prod = true;
+	$is_prod = false;
 	if(!$is_prod) {
 		echo '<pre>';
 		var_dump($var);

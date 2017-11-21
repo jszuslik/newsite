@@ -33,4 +33,55 @@ class NrwCallback {
 		}
 		return false;
 	}
+
+	public static function is_news_menu_under_branding( $control ) {
+		if ( 'under' == $control->manager->get_setting( 'theme_options[primary_menu_alignment]' )->value() ) {
+			return true;
+		}
+		return false;
+	}
+
+	public static function is_news_menu_inline_branding( $control ) {
+		if ( 'inline' == $control->manager->get_setting( 'theme_options[primary_menu_alignment]' )->value() ) {
+			return true;
+		}
+		return false;
+	}
+
+	public static function is_not_justify_alignment( $control ) {
+		if ( 'justify' != $control->manager->get_setting( 'theme_options[navbar_alignment]' )->value() ) {
+			return true;
+		}
+		return false;
+	}
+
+	public static function is_jumbotron_enabled( $control ) {
+		if ( $control->manager->get_setting( 'theme_options[enable_jumbo]' )->value() ) {
+			return true;
+		}
+		return false;
+	}
+
+	public static function is_jumbotron_type_video( $control ) {
+		if ( 'video' == $control->manager->get_setting( 'theme_options[jumbotron_type]' )->value() && self::is_jumbotron_enabled( $control ) ) {
+			return true;
+		}
+		return false;
+	}
+
+	public static function is_jumbotron_type_image( $control ) {
+		if ( 'image' == $control->manager->get_setting( 'theme_options[jumbotron_type]' )->value() &&
+		     self::is_jumbotron_enabled( $control ) ) {
+			return true;
+		}
+		return false;
+	}
+
+	public static function is_jumbotron_type_css( $control ) {
+		if ( 'css' == $control->manager->get_setting( 'theme_options[jumbotron_type]' )->value() &&
+		     self::is_jumbotron_enabled( $control ) ) {
+			return true;
+		}
+		return false;
+	}
 }

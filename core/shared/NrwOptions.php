@@ -75,4 +75,18 @@ class NrwOptions {
         return $output;
     }
 
+	public static function select_jumbotron_type_options() {
+
+		$choices = array(
+			'css'            => __( 'CSS Background', NRW_TXT_DOMAIN ),
+			'image'          => __( 'Image Background', NRW_TXT_DOMAIN),
+			'video'          => __( 'Video Background', NRW_TXT_DOMAIN)
+		);
+
+		$output = apply_filters('nrw_filter_jumbotron_type_options', $choices);
+		return $output;
+
+	}
+
+
 }

@@ -65,11 +65,21 @@
 .nrw-navbar-primary {
   background-color: $nrw-primary-dark;
 
-  a {
-	color: $nrw-primary-light;
+  .nav-item {
+	.nav-link {
+	  color: $nrw-primary-light;
 
-	&:hover {
-	  color: $nrw-primary-hover;
+	  &:hover {
+		color: $nrw-primary-hover;
+	  }
+	}
+
+	&.active::after {
+	  background: $nrw-primary-hover;
+	}
+
+	&::after {
+	  background: $nrw-primary-hover;
 	}
   }
 }
@@ -77,11 +87,21 @@
 .nrw-navbar-secondary {
   background-color: $nrw-secondary-dark;
 
-  a {
-	color: $nrw-secondary-light;
+  .nav-item {
+	.nav-link {
+	  color: $nrw-secondary-light;
 
-	&:hover {
-	  color: $nrw-secondary-hover;
+	  &:hover {
+		color: $nrw-secondary-hover;
+	  }
+	}
+
+	&.active::after {
+	  background: $nrw-secondary-hover;
+	}
+
+	&::after {
+	  background: $nrw-secondary-hover;
 	}
   }
 }
@@ -89,11 +109,21 @@
 .nrw-navbar-success {
   background-color: $nrw-success-dark;
 
-  a {
-	color: $nrw-success-light;
+  .nav-item {
+	.nav-link {
+	  color: $nrw-success-light;
 
-	&:hover {
-	  color: $nrw-success-hover;
+	  &:hover {
+		color: $nrw-success-hover;
+	  }
+	}
+
+	&.active::after {
+	  background: $nrw-success-hover;
+	}
+
+	&::after {
+	  background: $nrw-success-hover;
 	}
   }
 }
@@ -101,11 +131,21 @@
 .nrw-navbar-danger {
   background-color: $nrw-danger-dark;
 
-  a {
-	color: $nrw-danger-light;
+  .nav-item {
+	.nav-link {
+	  color: $nrw-danger-light;
 
-	&:hover {
-	  color: $nrw-danger-hover;
+	  &:hover {
+		color: $nrw-danger-hover;
+	  }
+	}
+
+	&.active::after {
+	  background: $nrw-danger-hover;
+	}
+
+	&::after {
+	  background: $nrw-danger-hover;
 	}
   }
 }
@@ -113,11 +153,21 @@
 .nrw-navbar-warning {
   background-color: $nrw-warning-dark;
 
-  a {
-	color: $nrw-warning-light;
+  .nav-item {
+	.nav-link {
+	  color: $nrw-warning-light;
 
-	&:hover {
-	  color: $nrw-warning-hover;
+	  &:hover {
+		color: $nrw-warning-hover;
+	  }
+	}
+
+	&.active::after {
+	  background: $nrw-warning-hover;
+	}
+
+	&::after {
+	  background: $nrw-warning-hover;
 	}
   }
 }
@@ -125,11 +175,21 @@
 .nrw-navbar-info {
   background-color: $nrw-info-dark;
 
-  a {
-	color: $nrw-info-light;
+  .nav-item {
+	.nav-link {
+	  color: $nrw-info-light;
 
-	&:hover {
-	  color: $nrw-info-hover;
+	  &:hover {
+		color: $nrw-info-hover;
+	  }
+	}
+
+	&.active::after {
+	  background: $nrw-info-hover;
+	}
+
+	&::after {
+	  background: $nrw-info-hover;
 	}
   }
 }
@@ -137,11 +197,21 @@
 .nrw-navbar-light {
   background-color: $nrw-light-dark;
 
-  a {
-	color: $nrw-light-light;
+  .nav-item {
+	.nav-link {
+	  color: $nrw-light-light;
 
-	&:hover {
-	  color: $nrw-light-hover;
+	  &:hover {
+		color: $nrw-light-hover;
+	  }
+	}
+
+	&.active::after {
+	  background: $nrw-light-hover;
+	}
+
+	&::after {
+	  background: $nrw-light-hover;
 	}
   }
 }
@@ -149,11 +219,21 @@
 .nrw-navbar-dark {
   background-color: $nrw-dark-dark;
 
-  a {
-	color: $nrw-dark-light;
+  .nav-item {
+	.nav-link {
+	  color: $nrw-dark-light;
 
-	&:hover {
-	  color: $nrw-dark-hover;
+	  &:hover {
+		color: $nrw-dark-hover;
+	  }
+	}
+
+	&.active::after {
+	  background: $nrw-dark-hover;
+	}
+
+	&::after {
+	  background: $nrw-dark-hover;
 	}
   }
 }
@@ -166,6 +246,7 @@
 
     .nav-item {
       position: relative;
+	  display: inline-block;
 
       .nav-link {
         padding-left: 0;
@@ -174,11 +255,11 @@
 
       &.active::after {
         content: "";
-        background: blue;
-        height: 10px;
+        //background: blue;
+        height: 6px;
         position: absolute;
         transition: .16s all 0.025s;
-        bottom: -4px;
+        bottom: -2px;
         display: block;
         width: 100%;
         left: 0;
@@ -186,12 +267,12 @@
 
       &::after {
         content: "";
-        background: blue;
-        height: 10px;
+        //background: blue;
+        height: 6px;
         position: absolute;
         transition: .16s all 0.025s;
         left: 100%;
-        bottom: -4px;
+        bottom: -2px;
         right: 0;
       }
 
@@ -205,6 +286,17 @@
         right: 0;
       }
     }
+  }
+
+  &.nrw-navbar-inline {
+	.nav-item {
+	  &.active::after {
+		bottom: -45px;
+	  }
+	  &::after {
+		bottom: -45px;
+	  }
+	}
   }
 
   &.left {
