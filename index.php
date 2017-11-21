@@ -17,6 +17,14 @@ get_header();
 
 
 ?>
+<?php if ( 'page' == get_option('show_on_front') && is_front_page() ) : ?>
+	<?php
+	do_action('nrw_before_jumbotron_action');
+	do_action( 'nrw_jumbtron_action');
+	do_action( 'nrw_after_jumbotron_action');
+
+	?>
+<?php else : ?>
 <div class="container">
 	<div id="primary">
 		<main id="main">
@@ -45,4 +53,5 @@ get_header();
 		</main>
 	</div>
 </div>
+    <?php endif; ?>
 <?php get_footer();

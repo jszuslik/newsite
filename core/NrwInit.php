@@ -17,6 +17,7 @@ class NrwInit {
 		nrw_require_file(NRW_CORE_PATH . 'customizer/frontend/css/NrwFrontendCss.php');
         nrw_require_file(NRW_CORE_PATH . 'customizer/structure/NrwStructureHooks.php');
 		nrw_require_file(NRW_CORE_PATH . 'customizer/header/NrwHeaderHooks.php');
+		nrw_require_file(NRW_CORE_PATH . 'customizer/jumbotron/NrwJumbotronHooks.php');
 	}
 
 }
