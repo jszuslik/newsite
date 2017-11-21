@@ -67,4 +67,12 @@ class NrwOptions {
 		return $output;
 	}
 
+	public static function menu_alignment_options() {
+	    $choices = self::text_alignment_options();
+	    $choices['justify'] = __('Justify', NRW_TXT_DOMAIN);
+
+        $output = apply_filters('nrw_filter_menu_alignment_options', $choices);
+        return $output;
+    }
+
 }

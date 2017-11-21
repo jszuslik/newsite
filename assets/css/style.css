@@ -11796,3 +11796,75 @@ body.lb-disable-scrolling {
 .nrw-navbar-dark a:hover {
   color: #8e8f90;
 }
+
+.navbar .navbar-nav {
+  position: relative;
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.navbar .navbar-nav .nav-item {
+  position: relative;
+}
+
+.navbar .navbar-nav .nav-item .nav-link {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.navbar .navbar-nav .nav-item.active::after {
+  content: "";
+  background: blue;
+  height: 10px;
+  position: absolute;
+  transition: .16s all 0.025s;
+  bottom: -4px;
+  display: block;
+  width: 100%;
+  left: 0;
+}
+
+.navbar .navbar-nav .nav-item::after {
+  content: "";
+  background: blue;
+  height: 10px;
+  position: absolute;
+  transition: .16s all 0.025s;
+  left: 100%;
+  bottom: -4px;
+  right: 0;
+}
+
+.navbar .navbar-nav .nav-item:hover ~ .nav-item::after {
+  left: 0;
+  right: 100%;
+}
+
+.navbar .navbar-nav .nav-item:hover::after {
+  left: 0;
+  right: 0;
+}
+
+.navbar.left .navbar-nav {
+  margin-right: auto !important;
+}
+
+.navbar.right .navbar-nav {
+  margin-left: auto !important;
+}
+
+.navbar.center .navbar-nav {
+  margin-right: auto !important;
+  margin-left: auto !important;
+}
+
+.navbar.justify {
+  padding: 0;
+}
+
+.navbar.justify .navbar-nav {
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+  width: 100%;
+}

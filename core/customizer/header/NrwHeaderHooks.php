@@ -64,7 +64,7 @@ class NrwHeaderHooks {
                 </div>
                 <div class="nrw-menu-wrapper">
                     <div class="<?php echo NrwCore::get_option('primary_menu_container_width'); ?>">
-                        <nav class="navbar navbar-expand-md nrw-navbar<?php echo NrwCore::get_option('navbar_color_theme'); ?>">
+                        <nav class="navbar navbar-expand-md nrw-navbar<?php echo NrwCore::get_option('navbar_color_theme'); ?> <?php echo NrwCore::get_option('navbar_alignment'); ?>">
                             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                                 <span class="navbar-toggler-icon"></span>
                             </button>
@@ -76,8 +76,9 @@ class NrwHeaderHooks {
                                         'container'			=> 'div',
                                         'container_class'	=> 'collapse navbar-collapse',
                                         'container_id'		=> 'navbarSupportedContent',
-                                        'menu_class'		=> 'navbar-nav mr-auto',
+                                        'menu_class'		=> 'navbar-nav',
                                         'fallback_cb'		=> 'WP_Bootstrap_Navwalker::fallback',
+                                        'items_wrap'        => $this->items_wrap(),
                                         'walker'			=> new WP_Bootstrap_Navwalker()
                                     )
                                 );
@@ -91,6 +92,15 @@ class NrwHeaderHooks {
 
     private function branding_inline_menu() {
 
+    }
+
+    private function items_wrap() {
+        $wrap  = '<ul id="%1$s" class="%2$s">';
+
+        $wrap .= '%3$s';
+        $wrap .= '<li class="nav-item"></li>';
+        $wrap .= '</ul>';
+        return $wrap;
     }
 
 }

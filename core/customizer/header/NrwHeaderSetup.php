@@ -228,6 +228,24 @@ class NrwHeaderSetup {
 				'priority'        => 100
 			)
 		);
+        $wp_customize->add_setting(
+            'theme_options[navbar_alignment]',
+            array(
+                'default'           => $this->default['navbar_alignment'],
+                'capability'        => 'edit_theme_options',
+                'sanitize_callback' => array('NrwSanitize', 'sanitize_select')
+            )
+        );
+        $wp_customize->add_control(
+            'theme_options[navbar_alignment]',
+            array(
+                'label'           => __( 'NavBar Alignment', NRW_TXT_DOMAIN ),
+                'section'         => 'section_header',
+                'type'            => 'select',
+                'choices'         => NrwOptions::menu_alignment_options(),
+                'priority'        => 100
+            )
+        );
 		$wp_customize->add_setting(
 			'theme_options[header_bg_color_select]',
 			array(

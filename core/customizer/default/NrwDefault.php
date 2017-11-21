@@ -33,6 +33,7 @@ class NrwDefault {
 		$defaults['navbar_bg_color']                      = '#353535';
 		$defaults['navbar_link_color']                    = '#03a9f4';
 		$defaults['navbar_link_hover_color']              = '#027cb3';
+        $defaults['navbar_alignment']                     = 'left';
 
 
 		$defaults = apply_filters('nrw_filter_default_theme_options', $defaults);
