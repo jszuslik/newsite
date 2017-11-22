@@ -19,9 +19,11 @@ get_header();
 ?>
 <?php if ( 'page' == get_option('show_on_front') && is_front_page() ) : ?>
 	<?php
-	do_action('nrw_before_jumbotron_action');
-	do_action( 'nrw_jumbtron_action');
-	do_action( 'nrw_after_jumbotron_action');
+    if(NrwCore::get_option('enable_jumbo')) :
+        do_action('nrw_before_jumbotron_action');
+        do_action( 'nrw_jumbtron_action');
+        do_action( 'nrw_after_jumbotron_action');
+    endif;
 
 	?>
 <?php else : ?>

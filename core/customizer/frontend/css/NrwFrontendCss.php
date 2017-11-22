@@ -24,6 +24,7 @@ class NrwFrontendCss {
 		$navbar_link_color = NrwCore::get_option('navbar_link_color');
 		$navbar_link_hover_color = NrwCore::get_option('navbar_link_hover_color');
 		$navbar_link_side_padding = NrwCore::get_option('menu_item_padding');
+		$jumbotron_bg_color = NrwCore::get_option('jumbotron_bg_color');
 		?>
 		<style id="nrw-frontend-custom-css">
 
@@ -74,6 +75,11 @@ class NrwFrontendCss {
             .nrw-navbar-custom .nav-item.active::after,
             .nrw-navbar-custom .nav-item::after {
                 background: <?php echo $navbar_link_hover_color; ?>;
+            }
+
+            .jumbotron-css {
+                background: <?php echo $jumbotron_bg_color; ?>;
+                color: #fff;
             }
 
 		</style>

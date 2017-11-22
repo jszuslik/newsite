@@ -37,8 +37,22 @@ class NrwJumbotronHooks {
 		</section>
 	<?php }
 
-	public function jumbotron_css() { ?>
-		<h2>I am a jumbotron!</h2>
+	public function jumbotron_css() {
+	    $header = NrwCore::get_option('jumbotron_header');
+	    $sub_header = NrwCore::get_option('jumbotron_sub_header');
+	    $content = NrwCore::get_option('jumbotron_content');
+	    ?>
+        <div class="jumbotron-css">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 col-md-4">
+                        <h2><?php echo $header; ?></h2>
+                        <h2><?php echo $sub_header; ?></h2>
+                        <p><?php echo $content; ?></p>
+                    </div>
+                </div>
+            </div>
+        </div>
 	<?php }
 
 	public function jumbotron_image() {
@@ -50,5 +64,7 @@ class NrwJumbotronHooks {
 	}
 
 }
+
 $nrwjumbotronhooks = new NrwJumbotronHooks();
 $nrwjumbotronhooks->init();
+
