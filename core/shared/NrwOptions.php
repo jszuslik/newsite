@@ -2,17 +2,6 @@
 if ( ! defined( 'ABSPATH' ) ) exit;
 class NrwOptions {
 
-	public static function get_home_sections_options() {
-		$choices = array(
-			'two-column-funnels' => array(
-				'label'       => __( '2 Column Funnels', NRW_TXT_DOMAIN ),
-				'template'    => 'template-parts/funnels/two-column-funnels'
-			)
-		);
-		$output = apply_filters( 'nrw_filter_home_section_templates', $choices);
-		return $output;
-	}
-
 	public static function get_bs_color_options() {
 
 		$choices = array(
@@ -84,6 +73,31 @@ class NrwOptions {
 		);
 
 		$output = apply_filters('nrw_filter_jumbotron_type_options', $choices);
+		return $output;
+
+	}
+
+	public static function select_jumbotron_cta_type_options() {
+
+		$choices = array(
+			'modal'            => __( 'Modal Popup', NRW_TXT_DOMAIN ),
+			'internal'         => __( 'Internal Link', NRW_TXT_DOMAIN),
+			'external'         => __( 'External Link', NRW_TXT_DOMAIN)
+		);
+
+		$output = apply_filters('nrw_filter_jumbotron_cta_type_options', $choices);
+		return $output;
+
+	}
+
+	public static function get_hp_section_templates() {
+
+		$choices = array(
+			'tagline'            => __( 'Tagline Display', NRW_TXT_DOMAIN),
+			'three-col-fun'      => __( 'Three Column Funnel', NRW_TXT_DOMAIN)
+		);
+
+		$output = apply_filters('nrw_filter_hpsection_templates', $choices);
 		return $output;
 
 	}

@@ -174,14 +174,6 @@ class NrwHeaderSetup {
 				'priority'        => 100
 			)
 		);
-		$wp_customize->add_setting(
-			'theme_options[brand_custom_css]',
-			array(
-				'default'             => $this->default['brand_custom_css'],
-				'capability'          => 'edit_theme_options',
-				'sanitize_callback'   => array( 'NrwSanitize', 'sanitize_checkbox')
-			)
-		);
 		$wp_customize->add_control(
 			'theme_options[brand_custom_css]',
 			array(

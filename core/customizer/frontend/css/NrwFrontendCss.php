@@ -25,6 +25,9 @@ class NrwFrontendCss {
 		$navbar_link_hover_color = NrwCore::get_option('navbar_link_hover_color');
 		$navbar_link_side_padding = NrwCore::get_option('menu_item_padding');
 		$jumbotron_bg_color = NrwCore::get_option('jumbotron_bg_color');
+		$jumbotron_header_color = NrwCore::get_option('jumbotron_header_color');
+		$jumbotron_sub_header_color = NrwCore::get_option('jumbotron_sub_header_color');
+		$jumbotron_content_color = NrwCore::get_option('jumbotron_content_color');
 		?>
 		<style id="nrw-frontend-custom-css">
 
@@ -59,9 +62,16 @@ class NrwFrontendCss {
             .nrw-navbar-custom {
                 background-color: <?php echo $navbar_bg_color; ?>;
             }
+            .navbar .navbar-nav .nav-item {
+                margin-left: <?php echo $navbar_link_side_padding; ?>px;
+                margin-right: <?php echo $navbar_link_side_padding; ?>px;
+                padding-left: 0;
+                padding-right: 0;
+            }
+
             .navbar .navbar-nav .nav-item .nav-link {
-                padding-left: <?php echo $navbar_link_side_padding; ?>px;
-                padding-right: <?php echo $navbar_link_side_padding; ?>px;
+                padding-left: 0;
+                padding-right: 0;
             }
 
             .nrw-navbar-custom .nav-item .nav-link {
@@ -79,7 +89,18 @@ class NrwFrontendCss {
 
             .jumbotron-css {
                 background: <?php echo $jumbotron_bg_color; ?>;
-                color: #fff;
+            }
+
+            .jumbo-header {
+                color: <?php echo $jumbotron_header_color; ?>;
+            }
+
+            .jumbo-sub-header {
+                color: <?php echo $jumbotron_sub_header_color; ?>;
+            }
+
+            .jumbo-content {
+                color: <?php echo $jumbotron_content_color; ?>;
             }
 
 		</style>

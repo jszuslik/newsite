@@ -84,4 +84,12 @@ class NrwCallback {
 		}
 		return false;
 	}
+
+	public static function is_jumbotron_cta_type_internal( $control ) {
+		if ( 'internal' == $control->manager->get_setting( 'theme_options[jumbotron_cta_type]' )->value() &&
+		     self::is_jumbotron_enabled( $control ) ) {
+			return true;
+		}
+		return false;
+	}
 }

@@ -65,6 +65,25 @@ class NrwJumbotronSetup {
 			)
 		);
 		$wp_customize->add_setting(
+			'theme_options[jumbo_container_width]',
+			array(
+				'default'           => $this->default['jumbo_container_width'],
+				'capability'        => 'edit_theme_options',
+				'sanitize_callback' => array('NrwSanitize', 'sanitize_select')
+			)
+		);
+		$wp_customize->add_control(
+			'theme_options[jumbo_container_width]',
+			array(
+				'label'           => __( 'Jumbotron Container Width', NRW_TXT_DOMAIN ),
+				'section'         => 'section_jumbo',
+				'type'            => 'select',
+				'choices'         => NrwOptions::content_width_options(),
+				'priority'        => 100,
+				'active_callback' => array('NrwCallback', 'is_jumbotron_enabled')
+			)
+		);
+		$wp_customize->add_setting(
 			'theme_options[jumbotron_classes]',
 			array(
 				'default'     => $this->default['jumbotron_classes'],
@@ -300,6 +319,42 @@ class NrwJumbotronSetup {
 			)
 		);
 		$wp_customize->add_setting(
+			'theme_options[jumbotron_cta_type]',
+			array(
+				'default'      => $this->default['jumbotron_cta_type'],
+				'capability'  => 'edit_theme_options',
+				'sanitize_callback' => array('NrwSanitize', 'sanitize_select')
+			)
+		);
+		$wp_customize->add_control(
+			'theme_options[jumbotron_cta_type]',
+			array(
+				'label'    => __( 'CTA Type', NRW_TXT_DOMAIN ),
+				'section'  => 'section_jumbo',
+				'type'     => 'select',
+				'choices'  => NrwOptions::select_jumbotron_cta_type_options(),
+				'priority' => 100,
+				'active_callback' => array( 'NrwCallback', 'is_jumbotron_enabled')
+			)
+		);
+		$wp_customize->add_setting(
+			'theme_options[jumbotron_cta_type_internal]',
+			array(
+				'default'      => $this->default['jumbotron_cta_type_internal'],
+				'capability'  => 'edit_theme_options'
+			)
+		);
+		$wp_customize->add_control(
+			'theme_options[jumbotron_cta_type_internal]',
+			array(
+				'label'    => __( 'Internal Link', NRW_TXT_DOMAIN ),
+				'section'  => 'section_jumbo',
+				'type'     => 'dropdown-pages',
+				'priority' => 100,
+				'active_callback' => array( 'NrwCallback', 'is_jumbotron_cta_type_internal')
+			)
+		);
+		$wp_customize->add_setting(
 			'theme_options[jumbotron_cta_btn_color]',
 			array(
 				'default'              => $this->default['jumbotron_cta_btn_color'],
@@ -316,6 +371,48 @@ class NrwJumbotronSetup {
 					'section'          => 'section_jumbo',
 					'priority'         => 100,
 					'active_callback'  => array('NrwCallback', 'is_jumbotron_type_css')
+				)
+			)
+		);
+		$wp_customize->add_setting(
+			'theme_options[jumbotron_mp4_exp_upload]',
+			array(
+				'default'     => $this->default['jumbotron_mp4_exp_upload'],
+				'capability'  => 'edit_theme_options',
+				'sanitize_callback' => 'esc_attr'
+			)
+		);
+		$wp_customize->add_control(
+			new WP_Customize_Media_Control(
+				$wp_customize,
+				'theme_options[jumbotron_mp4_exp_upload]',
+				array(
+					'label'      => __( 'Jumbotron Explainer Video (Mp4 Format)', NRW_TXT_DOMAIN ),
+					'section'    => 'section_jumbo',
+					'settings'   => 'theme_options[jumbotron_mp4_exp_upload]',
+					'mime_type'  => 'video/mp4',
+					'priority'   => 100
+				)
+			)
+		);
+		$wp_customize->add_setting(
+			'theme_options[jumbotron_ogg_exp_upload]',
+			array(
+				'default'     => $this->default['jumbotron_ogg_exp_upload'],
+				'capability'  => 'edit_theme_options',
+				'sanitize_callback' => 'esc_attr'
+			)
+		);
+		$wp_customize->add_control(
+			new WP_Customize_Media_Control(
+				$wp_customize,
+				'theme_options[jumbotron_ogg_exp_upload]',
+				array(
+					'label'      => __( 'Jumbotron Explainer Video (OGG Format)', NRW_TXT_DOMAIN ),
+					'section'    => 'section_jumbo',
+					'settings'   => 'theme_options[jumbotron_ogg_exp_upload]',
+					'mime_type'  => 'video/ogg',
+					'priority'   => 100
 				)
 			)
 		);

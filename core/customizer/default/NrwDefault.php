@@ -43,6 +43,7 @@ class NrwDefault {
 		 */
 		$defaults['enable_jumbo']                         = false;
 		$defaults['jumbotron_type']                       = 'css';
+		$defaults['jumbo_container_width']                = 'container';
 		$defaults['jumbotron_classes']                    = 'jumbotron-custom-class';
 		$defaults['jumbotron_mp4_upload']                 = '';
 		$defaults['jumbotron_ogg_upload']                 = '';
@@ -56,6 +57,11 @@ class NrwDefault {
 		$defaults['jumbotron_content_color']              = '#fff';
 		$defaults['jumbotron_cta_btn_text']               = 'Contact Us';
 		$defaults['jumbotron_cta_btn_color']              = '#03a9f4';
+		$defaults['jumbotron_cta_type']                   = 'modal';
+		$defaults['jumbotron_cta_type_internal']          = '0';
+		$defaults['jumbotron_mp4_exp_upload']             = '';
+		$defaults['jumbotron_ogg_exp_upload']             = '';
+
 
 
 		$defaults = apply_filters('nrw_filter_default_theme_options', $defaults);

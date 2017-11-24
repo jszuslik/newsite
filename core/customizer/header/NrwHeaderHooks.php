@@ -15,7 +15,19 @@ class NrwHeaderHooks {
         add_action('nrw_action_before_header', array($this, 'news_ticker'), 10);
 		add_action('nrw_action_after_header', array($this, 'header_end'), 15);
 		add_action('nrw_action_header', array($this, 'branding_menu'));
+		add_filter('body_class', array($this, 'add_body_classes'));
 	}
+
+	public function add_body_classes( $classes ) {
+		if(NrwCore::get_option('fixed_header')) :
+	        $classes[] = 'nrw-fixed-top';
+		endif;
+		if(NrwCore::get_option('show_ticker')) :
+			$classes[] = 'nrw-news-ticker';
+		endif;
+
+	    return $classes;
+    }
 
 	public function header_start() {
 		if(NrwCore::get_option('fixed_header')) :
@@ -108,9 +120,9 @@ class NrwHeaderHooks {
 		                                        $title .= '<span class="brand-word-' . $count . '">' . $word . '</span>';
 		                                        $count++;
 	                                        }
-	                                        ?><a class="navbar-brand" href="/"><h1><?php echo $title; ?></h1></a> <?php
+	                                        ?><a class="navbar-brand" href="/"><h2><?php echo $title; ?></h2></a> <?php
                                         } else {
-                                            ?><a class="navbar-brand" href="/"><h1><?php bloginfo('name'); ?></h1></a><?php
+                                            ?><a class="navbar-brand" href="/"><h2><?php bloginfo('name'); ?></h2></a><?php
                                         }
                                     } else { ?>
 			                            <?php the_custom_logo(); ?>
