@@ -1,0 +1,48 @@
+@include media-breakpoint-up(xs) {
+  .funnel {
+	margin: 0 50px;
+	padding-bottom: 50px;
+
+	&.funnel-normal {
+
+	}
+
+	&.funnel-featured {
+	  background: #fff;
+	  box-shadow: 0 0 15px 1px #000;
+	}
+
+	.funnel-icon-wrapper {
+	  padding: 50px 75px;
+	}
+
+	.funnel-content-wrapper {
+	  padding: 0 30px;
+	  text-align: center;
+
+	  .funnel-title {
+		font-family: $nrw-montserrat;
+		font-weight: 600;
+		letter-spacing: 1.5px;
+		text-transform: uppercase;
+	  }
+
+	  .funnel-content {
+		font-family: $nrw-roboto;
+		padding-bottom: 40px;
+	  }
+	}
+  }
+}
+
+@include media-breakpoint-up(sm) {
+}
+
+@include media-breakpoint-up(md) {
+}
+
+@include media-breakpoint-up(lg) {
+}
+
+@include media-breakpoint-up(xl) {
+}

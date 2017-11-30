@@ -102,5 +102,32 @@ class NrwOptions {
 
 	}
 
+	public static function get_home_section_posts() {
+		$args = array(
+			'posts_per_page'  => -1,
+			'post_type'       => 'homepage_section',
+			'orderby'         => 'menu_order',
+			'order'           => 'ASC'
+		);
+		$posts = get_posts($args);
+
+		$choices = array();
+
+		foreach ($posts as $post) :
+
+			$choices[$post->post_name] = array(
+				'label'      => $post->post_title,
+				'template'   => get_post_meta($post->ID, "hp_section_templates", true),
+				'enabled'    => get_post_meta($post->ID, 'enable_section', true),
+				'menu_order' => $post->menu_order,
+				'post_id'    => $post->ID
+			);
+
+		endforeach;
+
+		$output = apply_filters( 'nrw_filter_home_section_posts', $choices );
+		return $output;
+	}
+
 
 }

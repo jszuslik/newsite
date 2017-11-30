@@ -1,0 +1,33 @@
+@include media-breakpoint-up(xs) {
+  .nrw-tagline {
+	font-family: $nrw-montserrat;
+	font-weight: 600;
+	letter-spacing: 1.5px;
+	padding: 50px 0;
+	text-align: center;
+	text-transform: uppercase;
+
+	span {
+		font-weight: 400;
+	}
+  }
+  .nrw-arrow-down {
+	width: 0;
+	height: 0;
+	border-left: 20px solid transparent;
+	border-right: 20px solid transparent;
+	margin: 0 auto;
+  }
+}
+
+@include media-breakpoint-up(sm) {
+}
+
+@include media-breakpoint-up(md) {
+}
+
+@include media-breakpoint-up(lg) {
+}
+
+@include media-breakpoint-up(xl) {
+}

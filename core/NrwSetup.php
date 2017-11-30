@@ -38,6 +38,8 @@ class NrwSetup {
 		add_action('after_setup_theme', array($this, 'theme_setup'));
 		add_action( 'wp_head', array($this, 'javascript_detection'), 0 );
 		add_action( 'wp_enqueue_scripts', array($this, 'scripts') );
+		add_filter('upload_mimes', array($this, 'mime_types') );
+		add_action( 'wp_ajax_nrw_remove_image', array($this, 'nrw_remove_image') );
 	}
 
 	public function theme_setup() {
@@ -90,6 +92,18 @@ class NrwSetup {
 		}
 		wp_enqueue_style('nrw-google-fonts', 'https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,700,700i|Roboto:300,400,400i,500,500i,700,700i');
 
+	}
+
+	public function mime_types($mimes) {
+		$mimes['svg'] = 'image/svg+xml';
+		return $mimes;
+	}
+
+	public function nrw_remove_image() {
+		$post_id = $_POST['post_id'];
+		$meta_id = $_POST['meta_id'];
+		echo update_post_meta($post_id, $meta_id, '');
+		die();
 	}
 
 }

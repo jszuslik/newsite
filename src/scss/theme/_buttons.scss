@@ -1,0 +1,48 @@
+@include media-breakpoint-up(xs) {
+  .nrw-btn {
+	display: inline-block;
+	font-family: $nrw-roboto;
+	font-weight: 300;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	padding: 15px 20px;
+	border: 1px solid;
+	-webkit-transition: color 0.3s, background 0.3s;
+	-moz-transition: color 0.3s, background 0.3s;
+	transition: color 0.3s, background 0.3s;
+
+	&.nrw-btn-light {
+	  color: #fff;
+	  border-color: #fff;
+
+	  &:hover {
+		text-decoration: none;
+		color: #000;
+		background: #fff;
+	  }
+	}
+
+	&.nrw-btn-dark {
+	  color: #000;
+	  border-color: #000;
+
+	  &:hover {
+		text-decoration: none;
+		color: #fff;
+		background: #000;
+	  }
+	}
+  }
+}
+
+@include media-breakpoint-up(sm) {
+}
+
+@include media-breakpoint-up(md) {
+}
+
+@include media-breakpoint-up(lg) {
+}
+
+@include media-breakpoint-up(xl) {
+}

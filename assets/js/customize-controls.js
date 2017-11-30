@@ -19,17 +19,16 @@
                             } else {
                                 is_enabled = false;
                             }
-                            console.log(is_enabled);
                             $.ajax({
-                                url: omni_update_menu_order.ajax_url,
+                                url: nrw_update_menu_order.ajax_url,
                                 type: 'post',
                                 data: {
-                                    action: 'omni_wp_theme_ajax_update_enable_section',
+                                    action: 'nrw_ajax_update_enable_section',
                                     post_id: post_id,
                                     value: is_enabled
                                 },
                                 success: function (response) {
-                                    console.log(response);
+                                    //console.log(response);
                                 }
                             });
                             return this.value;
@@ -54,15 +53,15 @@
                             post_id = jQuery(this).attr("data-post_id");
                             console.log(menu_order);
                             $.ajax({
-                                url: omni_update_menu_order.ajax_url,
+                                url: nrw_update_menu_order.ajax_url,
                                 type: 'post',
                                 data : {
-                                    action: 'omni_wp_theme_ajax_update_post_menu_order',
+                                    action: 'nrw_ajax_update_post_menu_order',
                                     post_id: post_id,
                                     menu_order: menu_order
                                 },
                                 success: function (response) {
-                                    console.log(response);
+                                    //console.log(response);
                                 }
                             });
                             return this.value;

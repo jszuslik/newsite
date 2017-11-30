@@ -49,11 +49,11 @@ class NrwCore {
 					$btn_id = $field['btn_id'];
 				if(isset($field['choices']))
 					$choices = $field['choices'];
-				if('check' == $type || 'enable_opt_in' == $type) {
+				if('check' == $type) {
 					$value = array();
 					foreach ($choices as $key => $choice) {
-						if(isset($stored_page_meta[$id.'_'.$key])) {
-							$value[$id.'_'.$key] = $stored_page_meta[$id.'_'.$key][0];
+						if(isset($stored_page_meta[$id])) {
+							$value[$id] = $stored_page_meta[$id][0];
 						}
 					}
 				} else {
@@ -88,7 +88,7 @@ class NrwCore {
 						$fields .= '<div id="nrw_admin_image_upload_'. $name . '">';
 						$fields .= '<label>' . $label . '</label><br><small>' . $description . '</small>';
 						if('' != $value[0] && isset($value[0])) {
-							$fields .= self::omni_wp_theme_check_file_type($value[0], $name, $btn_text);
+							$fields .= self::check_file_type($value[0], $name, $btn_text);
 						} else {
 							$fields .= '<input type="text" name="' . $name . '" id="upload_image" value="' . $value[0] . '" style="width: 100%" /><br>';
 							$fields .= '<input type="button" id="upload_image_button" class="button nrw_button" value="'. $btn_text .'"/></p>';
@@ -131,56 +131,96 @@ class NrwCore {
 						$fields .= '<label>' . $label . '</label><br><small>' . $description . '</small>';
 						$count = 0;
 						foreach ($choices as $key => $choice) {
-							if ($value[$id.'_'.$key][0] == $key) {
-								$fields .= '<input type="checkbox" name="' . $name . '_' . $key . '" value="' . $key . '" checked="checked">' . $choice . '<br>';
+							//p($value[$id]);
+							if (isset($value[$id]) && $value[$id] == $key) {
+								$fields .= '<input id="'.$id.'" type="checkbox" name="' . $name . '" value="' . $key . '" 
+								checked="checked">' . $choice . '<br>';
 							} else {
-								$fields .= '<input type="checkbox" name="' . $name . '_' . $key . '" value="' . $key . '">' . $choice . '<br>';
+								$fields .= '<input id="'.$id.'" type="checkbox" name="' . $name . '" value="' . $key
+								           . '">' . $choice . '<br>';
 							}
 							$count++;
 						}
 						$fields .= '</div><br>';
 						break;
-					case 'enable_opt_in':
-						$fields .= '<div id="nrw_admin_enable_opt_in_'. $name . '">';
-						$fields .= '<label>' . $label . '</label><br><small>' . $description . '</small>';
-						$count = 0;
-						p($value);
-						foreach ($choices as $key => $choice) {
-							p($key);
-							if ($value[$id.'_'.$key] == $key) {
+					case 'color':
+						$fields .= '<div id="nrw_admin_color_picker_' . $name . '">';
 
-								$fields .= '<input type="checkbox" name="' . $name . '_' . $key . '" value="' . $key
-								           . '" checked="checked" data-target="#nrw_admin_radio_'. $target . '">' .
-								           $choice . '<br>';
-							} else {
-								$fields .= '<input type="checkbox" name="' . $name . '_' . $key . '" value="' . $key
-								           . '" data-target="#nrw_admin_radio_'. $target . '">' . $choice . '<br>';
-							}
-							$count++;
-						}
-						$fields .= '</div><br>';
-						break;
-					case 'opt_in_options':
-						$hidden = '';
-						$is_enabled = $stored_page_meta[$enabled];
-						if('enable' != $is_enabled[0]) {
-							$hidden = 'class="hidden"';
-						}
-						$fields .= '<div id="nrw_admin_radio_'. $name . '" ' . $hidden . '>';
-						$fields .= '<label>' . $label . '</label><br><small>' . $description . '</small>';
-						foreach ($choices as $key => $choice) {
-							if ( $value[0] == $key ) {
-								$fields .= '<input type="radio" name="' . $name . '" value="' . $key . '" checked="checked">' . $choice . '<br>';
-							} else {
-								$fields .= '<input type="radio" name="' . $name . '" value="' . $key . '">' . $choice . '<br>';
-							}
-						}
+							$fields .= '<label>' . $label . '</label> <small>' . $description . '</small><br>';
+							$fields .= '<input id="' . $id . '" class="color-field" type="color" name="' . $name . '" value="' . $value[0] . '" /><br>';
 						$fields .= '</div><br>';
 						break;
 				}
 			}
 			$fields .= '</div>';
 		}
+		return $fields;
+	}
+
+	public static function get_active_homepage_sections() {
+		$output = array();
+		$args = array(
+			'post_type' => 'homepage_section',
+			'posts_per_page'   => -1,
+			'orderby'          => 'menu_order',
+			'order'            => 'ASC',
+		);
+		$posts = get_posts($args);
+
+		foreach($posts as $post) {
+			if ('enabled' == get_post_meta($post->ID, 'enable_section', true)) {
+				$output[] = $post;
+			}
+		}
+
+		return $output;
+	}
+
+	public static function get_image_id_by_url( $image_url ) {
+		global $wpdb;
+		$attachment = $wpdb->get_col($wpdb->prepare("SELECT ID FROM $wpdb->posts WHERE guid='%s';", $image_url ));
+		return $attachment[0];
+	}
+
+	public static function check_file_type($file, $name, $btn_text) {
+		$pinfo = pathinfo($file);
+		$ext = $pinfo['extension'];
+		$image_exts = array(
+			'jpg',
+			'jpeg',
+			'png',
+			'gif',
+			'webp',
+			'svg'
+		);
+		$file_exts = array(
+			'pdf',
+			'zip',
+			'doc',
+			'docx'
+		);
+		$fields = '';
+		switch ($ext) {
+			case in_array($ext, $image_exts):
+				$img_id = self::get_image_id_by_url($file);
+				$img = wp_get_attachment_image_src($img_id, 'thumbnail');
+
+				$fields .= '<img src="' . $img[0] . '"><br><br>';
+				$fields .= '<input type="hidden" name="' . $name . '" id="upload_image" value="' . $file . '" style="width: 100%" />';
+				$fields .= '<input type="button" id="' . $name . '_remove_btn" class="button nrw_remove_image_button" value="Remove Image"/></p>';
+				break;
+			case in_array($ext, $file_exts):
+				$fields .= '<img src="' . get_template_directory_uri(). '/assets/images/fallback-file.png" width="75" height="75"><br><br><span>
+' . $pinfo['filename'] . '.' . $pinfo['extension'] .'</span><br><br>';
+				$fields .= '<input type="hidden" name="' . $name . '" id="upload_image" value="' . $file . '" style="width: 100%" />';
+				$fields .= '<input type="button" id="' . $name . '_remove_btn" class="button nrw_remove_file_button" value="Remove File"/></p>';
+				break;
+			default:
+				$fields .= '<input type="text" name="' . $name . '" id="upload_image" value="' . $file . '" style="width: 100%" /><br><br>';
+				$fields .= '<input type="button" id="upload_image_button" class="button nrw_button" value="'. $btn_text .'"/></p>';
+				break;
+		}
+
 		return $fields;
 	}
 }

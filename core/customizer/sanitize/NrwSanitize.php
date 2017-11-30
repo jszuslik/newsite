@@ -34,7 +34,8 @@ class NrwSanitize {
 		$output = array();
 
 		if ( ! empty( $input ) ) {
-			$all_sections = NrwOptions::get_home_sections_options();
+			$all_sections = NrwOptions::get_home_section_posts();
+			p($all_sections);
 			$section_keys = array_keys( $all_sections );
 
 			foreach ( $input as $key ) {

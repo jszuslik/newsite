@@ -13,7 +13,7 @@ class NrwJumbotronHooks {
 	public function init() {
 		add_action('nrw_before_jumbotron_action', array($this, 'jumbotron_start'), 10);
 		add_action('nrw_jumbtron_action', array($this, 'jumbotron_content'), 10);
-		add_action('nrw_after_jumbotron_action', array($this, 'jumbotron_start'), 10);
+		add_action('nrw_after_jumbotron_action', array($this, 'jumbotron_end'), 10);
 	}
 
 	public function jumbotron_content() {

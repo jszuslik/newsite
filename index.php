@@ -25,6 +25,8 @@ get_header();
         do_action( 'nrw_after_jumbotron_action');
     endif;
 
+    do_action('nrw_action_homepage_sections');
+
 	?>
 <?php else : ?>
 <div class="container">

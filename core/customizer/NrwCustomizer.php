@@ -16,11 +16,15 @@ class NrwCustomizer {
 	}
 
 	public function register( $wp_customize ) {
+		nrw_require_file(NRW_CORE_PATH . 'customizer/controls/NrwHomepageSectionControl.php');
+		$wp_customize->register_control_type('NrwHomepageSectionControl');
+
 		$wp_customize->get_setting( 'blogname' )->transport        = 'postMessage';
 		$wp_customize->get_setting( 'blogdescription' )->transport = 'postMessage';
 		nrw_require_file(NRW_CORE_PATH . 'customizer/NrwThemeOptionsSetup.php');
 		nrw_require_file(NRW_CORE_PATH . 'customizer/header/NrwHeaderSetup.php');
 		nrw_require_file(NRW_CORE_PATH . 'customizer/jumbotron/NrwJumbotronSetup.php');
+		nrw_require_file(NRW_CORE_PATH . 'customizer/sections/NrwSectionsSetup.php');
 	}
 
 	public function scripts() {

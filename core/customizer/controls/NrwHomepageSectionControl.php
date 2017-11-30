@@ -3,6 +3,9 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
+if( ! class_exists( 'WP_Customize_Control' ) ) {
+	return null;
+}
 
 class NrwHomepageSectionControl extends WP_Customize_Control {
 
@@ -29,10 +32,10 @@ class NrwHomepageSectionControl extends WP_Customize_Control {
 	 */
 	public function enqueue() {
 
-		wp_enqueue_style( 'nrw-css-customize-controls' );
-		wp_enqueue_script( 'nrw-customize-controls' );
+		wp_enqueue_style( 'nrw-wp-theme-css-customize-controls' );
+		wp_enqueue_script( 'nrw-wp-theme-customize-controls' );
 
-		wp_localize_script( 'nrw-customize-controls', 'nrw_update_menu_order', array(
+		wp_localize_script( 'nrw-wp-theme-customize-controls', 'nrw_update_menu_order', array(
 			'ajax_url' => admin_url('admin-ajax.php')
 		));
 
@@ -78,8 +81,9 @@ class NrwHomepageSectionControl extends WP_Customize_Control {
 											<i class="dashicons dashicons-move"></i>
 											<span>{{ item.label }}</span>
 											<input type="checkbox" class="section-item-checkbox" value="{{ choice }}"
-											       data-order="{{ item.menu_order }}" data-post_id="{{ item.post_id }}" <#
-												if (true == item.enabled) { #>
+											       data-order="{{ item.menu_order }}" data-post_id="{{ item.post_id
+											       }}"<#
+												if ('enabled' == item.enabled) { #>
 												checked="checked" <# } #> />
 										</label>
 									</li>

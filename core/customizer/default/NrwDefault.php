@@ -18,6 +18,7 @@ class NrwDefault {
 		$defaults['ticker_number']                        = 3;
 		$defaults['ticker_dark_color']                    = '#353535';
 		$defaults['ticker_light_color']                   = '#03a9f4';
+		$defaults['ticker_title']                         = '';
 
 		/**
 		 * Branding and Header Menu
@@ -59,8 +60,14 @@ class NrwDefault {
 		$defaults['jumbotron_cta_btn_color']              = '#03a9f4';
 		$defaults['jumbotron_cta_type']                   = 'modal';
 		$defaults['jumbotron_cta_type_internal']          = '0';
+		$defaults['jumbotron_bg_image_upload']             = '';
 		$defaults['jumbotron_mp4_exp_upload']             = '';
 		$defaults['jumbotron_ogg_exp_upload']             = '';
+
+		/**
+		 * Homepage Sections
+		 */
+		$defaults['homepage_sections']                    = '';
 
 
 
