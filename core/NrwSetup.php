@@ -84,6 +84,7 @@ class NrwSetup {
 	 * Enqueue scripts and styles.
 	 */
 	public function scripts() {
+		wp_register_script('nrw-meta-js', get_template_directory_uri() . '/admin/js/nrw-color-picker.js', array( 'wp-color-picker' ), false, true);
 		wp_enqueue_style( 'nrw-style', get_stylesheet_uri() );
 		if ($this->production) {
 			wp_enqueue_script('nrw-script', get_template_directory_uri() . '/assets/js/scripts.min.js', array('jquery'), false, true);

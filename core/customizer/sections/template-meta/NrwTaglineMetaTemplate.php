@@ -55,11 +55,12 @@ class NrwTaglineMetaTemplate {
 
 	public function init() {
 		add_action( 'add_meta_boxes', array($this, 'add_meta_boxes') );
-
+		add_action( 'admin_enqueue_scripts', array($this, 'add_color_picker_scripts') );
 	}
 
 	public function init_save() {
 		add_action('save_post', array( $this, 'save_meta_data' ) );
+
 	}
 
 	public function add_meta_boxes() {
@@ -123,6 +124,12 @@ class NrwTaglineMetaTemplate {
 				}
 			}
 		}
+	}
+
+	public function add_color_picker_scripts($hook) {
+		wp_enqueue_style('wp-color-picker');
+		wp_enqueue_script('nrw-color-picker-js', get_template_directory_uri() . '/admin/js/nrw-color-picker.js',
+		                  array(	'wp-color-picker' ), false, true);
 	}
 
 }

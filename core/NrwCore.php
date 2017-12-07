@@ -147,7 +147,7 @@ class NrwCore {
 						$fields .= '<div id="nrw_admin_color_picker_' . $name . '">';
 
 							$fields .= '<label>' . $label . '</label> <small>' . $description . '</small><br>';
-							$fields .= '<input id="' . $id . '" class="color-field" type="color" name="' . $name . '" value="' . $value[0] . '" /><br>';
+							$fields .= '<input id="' . $id . '" class="color-field" type="text" name="' . $name . '" value="' . $value[0] . '" /><br>';
 						$fields .= '</div><br>';
 						break;
 				}
@@ -204,14 +204,17 @@ class NrwCore {
 			case in_array($ext, $image_exts):
 				$img_id = self::get_image_id_by_url($file);
 				$img = wp_get_attachment_image_src($img_id, 'thumbnail');
-
+				$fields .= '<div style="max-width: 150px">';
 				$fields .= '<img src="' . $img[0] . '"><br><br>';
+				$fields .= '</div>';
 				$fields .= '<input type="hidden" name="' . $name . '" id="upload_image" value="' . $file . '" style="width: 100%" />';
 				$fields .= '<input type="button" id="' . $name . '_remove_btn" class="button nrw_remove_image_button" value="Remove Image"/></p>';
 				break;
 			case in_array($ext, $file_exts):
+				$fields .= '<div style="max-width: 150px">';
 				$fields .= '<img src="' . get_template_directory_uri(). '/assets/images/fallback-file.png" width="75" height="75"><br><br><span>
 ' . $pinfo['filename'] . '.' . $pinfo['extension'] .'</span><br><br>';
+				$fields .= '</div>';
 				$fields .= '<input type="hidden" name="' . $name . '" id="upload_image" value="' . $file . '" style="width: 100%" />';
 				$fields .= '<input type="button" id="' . $name . '_remove_btn" class="button nrw_remove_file_button" value="Remove File"/></p>';
 				break;

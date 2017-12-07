@@ -54,6 +54,14 @@ class NrwFunnelsMetaTemplate {
 						'label'        => __('Funnel 1 Content', NRW_TXT_DOMAIN),
 						'description'  => ''
 					),
+					array(
+						'type'         => 'select',
+						'name'         => 'funnel_1_link_id',
+						'id'           => 'funnel_1_link_id',
+						'choices'      => NrwOptions::get_all_pages(),
+						'label'        => __( 'Funnel 1 Link', NRW_TXT_DOMAIN),
+						'description'  => ''
+					)
 				)
 			),
 			array(
@@ -81,6 +89,14 @@ class NrwFunnelsMetaTemplate {
 						'label'        => __('Funnel 2 Content', NRW_TXT_DOMAIN),
 						'description'  => ''
 					),
+					array(
+						'type'         => 'select',
+						'name'         => 'funnel_2_link_id',
+						'id'           => 'funnel_2_link_id',
+						'choices'      => NrwOptions::get_all_pages(),
+						'label'        => __( 'Funnel 2 Link', NRW_TXT_DOMAIN),
+						'description'  => ''
+					)
 				)
 			),
 			array(
@@ -108,6 +124,14 @@ class NrwFunnelsMetaTemplate {
 						'label'        => __('Funnel 3 Content', NRW_TXT_DOMAIN),
 						'description'  => ''
 					),
+					array(
+						'type'         => 'select',
+						'name'         => 'funnel_3_link_id',
+						'id'           => 'funnel_3_link_id',
+						'choices'      => NrwOptions::get_all_pages(),
+						'label'        => __( 'Funnel 3 Link', NRW_TXT_DOMAIN),
+						'description'  => ''
+					)
 				)
 			)
 		);
@@ -116,7 +140,7 @@ class NrwFunnelsMetaTemplate {
 	public function init() {
 		add_action( 'add_meta_boxes', array($this, 'add_meta_boxes') );
 		add_action('admin_print_styles', array( $this, 'meta_image_enqueue'));
-
+		add_action( 'admin_enqueue_scripts', array($this, 'add_color_picker_scripts') );
 	}
 
 	public function init_save() {
@@ -198,6 +222,12 @@ class NrwFunnelsMetaTemplate {
 		                    )
 		);
 		wp_enqueue_script( 'meta-box-image' );
+	}
+
+	public function add_color_picker_scripts($hook) {
+		wp_enqueue_style('wp-color-picker');
+		wp_enqueue_script('nrw-color-picker-js', get_template_directory_uri() . '/admin/js/nrw-color-picker.js',
+		                  array(	'wp-color-picker' ), false, true);
 	}
 
 }

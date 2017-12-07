@@ -91,14 +91,20 @@ class NrwSectionHooks {
 		$svg_1 = $meta['funnel_1_icon'][0];
 		$header_1 = $meta['funnel_1_title'][0];
 		$content_1 = $meta['funnel_1_content'][0];
+		$link_1_id = $meta['funnel_1_link_id'][0];
+        $link_1 = get_permalink($link_1_id);
 
 		$svg_2 = $meta['funnel_2_icon'][0];
 		$header_2 = $meta['funnel_2_title'][0];
 		$content_2 = $meta['funnel_2_content'][0];
+		$link_2_id = $meta['funnel_2_link_id'][0];
+		$link_2 = get_permalink($link_2_id);
 
 		$svg_3 = $meta['funnel_3_icon'][0];
 		$header_3 = $meta['funnel_3_title'][0];
 		$content_3 = $meta['funnel_3_content'][0];
+		$link_3_id = $meta['funnel_3_link_id'][0];
+		$link_3 = get_permalink($link_3_id);
 
 		?>
 		<section id="<?php echo $meta['nrw_section_id'][0]; ?>" style="position: relative; z-index: 1;">
@@ -106,44 +112,44 @@ class NrwSectionHooks {
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-4">
-                            <div class="funnel funnel-normal">
+                            <div class="funnel funnel-featured">
                                 <div class="funnel-icon-wrapper">
-                                    <img src="<?php echo $svg_1; ?>" />
+                                    <img src="<?php echo $svg_1; ?>" class="style-svg" />
                                 </div>
                                 <div class="funnel-content-wrapper">
                                     <h2 class="funnel-title">
                                         <?php echo $header_1; ?>
                                     </h2>
                                     <p class="funnel-content"><?php echo $content_1; ?></p>
-                                    <a href="#" class="nrw-btn nrw-btn-light">Learn More</a>
+                                    <a href="<?php echo $link_1; ?>" class="nrw-btn nrw-btn-dark">Learn More</a>
                                 </div>
                             </div>
                         </div>
                         <div class="col-4">
                             <div class="funnel funnel-featured">
                                 <div class="funnel-icon-wrapper">
-                                    <img src="<?php echo $svg_2; ?>" />
+                                    <img src="<?php echo $svg_2; ?>" class="style-svg" />
                                 </div>
                                 <div class="funnel-content-wrapper">
                                     <h2 class="funnel-title">
 					                    <?php echo $header_2; ?>
                                     </h2>
                                     <p class="funnel-content"><?php echo $content_2; ?></p>
-                                    <a href="#" class="nrw-btn nrw-btn-dark">Learn More</a>
+                                    <a href="<?php echo $link_2; ?>" class="nrw-btn nrw-btn-dark">Learn More</a>
                                 </div>
                             </div>
                         </div>
                         <div class="col-4">
-                            <div class="funnel funnel-normal">
+                            <div class="funnel funnel-featured">
                                 <div class="funnel-icon-wrapper">
-                                    <img src="<?php echo $svg_3; ?>" />
+                                    <img src="<?php echo $svg_3; ?>" class="style-svg" />
                                 </div>
                                 <div class="funnel-content-wrapper">
                                     <h2 class="funnel-title">
 					                    <?php echo $header_3; ?>
                                     </h2>
                                     <p class="funnel-content"><?php echo $content_3; ?></p>
-                                    <a href="#" class="nrw-btn nrw-btn-light">Learn More</a>
+                                    <a href="<?php echo $link_3; ?>" class="nrw-btn nrw-btn-dark">Learn More</a>
                                 </div>
                             </div>
                         </div>

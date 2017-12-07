@@ -129,5 +129,34 @@ class NrwOptions {
 		return $output;
 	}
 
+	public static function get_all_pages() {
+		$args = array(
+			'sort_order' => 'asc',
+			'sort_column' => 'post_title',
+			'hierarchical' => 1,
+			'exclude' => '',
+			'include' => '',
+			'meta_key' => '',
+			'meta_value' => '',
+			'authors' => '',
+			'child_of' => 0,
+			'parent' => -1,
+			'exclude_tree' => '',
+			'number' => '',
+			'offset' => 0,
+			'post_type' => 'page',
+			'post_status' => 'publish'
+		);
+		$pages = get_pages($args);
+
+		$choices = array();
+		foreach ($pages as $page) {
+			$choices[$page->ID] = $page->post_title;
+		}
+
+		$output = apply_filters( 'nrw_filter_pages', $choices );
+		return $output;
+	}
+
 
 }

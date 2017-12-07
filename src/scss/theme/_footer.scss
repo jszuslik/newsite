@@ -1,0 +1,38 @@
+@include media-breakpoint-up(xs) {
+  .nrw-footer-cta-section {
+	background: #353535;
+	padding: 50px 0;
+	text-align: center;
+	.footer-cta-header {
+	  color: #fff;
+	  padding-bottom: 25px;
+	}
+  }
+
+  .nrw-footer-serving-section {
+	padding: 50px 0;
+	.nrw-serving-section-header {
+	  text-align: center;
+	}
+	.nrw-serving-section-list {
+	  list-style: none;
+
+	  li {
+		display: inline-block;
+		padding: 0 30px;
+	  }
+	}
+  }
+}
+
+@include media-breakpoint-up(sm) {
+}
+
+@include media-breakpoint-up(md) {
+}
+
+@include media-breakpoint-up(lg) {
+}
+
+@include media-breakpoint-up(xl) {
+}

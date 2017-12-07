@@ -12099,6 +12099,10 @@ body.lb-disable-scrolling {
   padding: 50px 75px;
 }
 
+.funnel .funnel-icon-wrapper svg {
+  max-height: 150px;
+}
+
 .funnel .funnel-content-wrapper {
   padding: 0 30px;
   text-align: center;
@@ -12114,4 +12118,32 @@ body.lb-disable-scrolling {
 .funnel .funnel-content-wrapper .funnel-content {
   font-family: "Roboto", sans-serif;
   padding-bottom: 40px;
+}
+
+.nrw-footer-cta-section {
+  background: #353535;
+  padding: 50px 0;
+  text-align: center;
+}
+
+.nrw-footer-cta-section .footer-cta-header {
+  color: #fff;
+  padding-bottom: 25px;
+}
+
+.nrw-footer-serving-section {
+  padding: 50px 0;
+}
+
+.nrw-footer-serving-section .nrw-serving-section-header {
+  text-align: center;
+}
+
+.nrw-footer-serving-section .nrw-serving-section-list {
+  list-style: none;
+}
+
+.nrw-footer-serving-section .nrw-serving-section-list li {
+  display: inline-block;
+  padding: 0 30px;
 }
