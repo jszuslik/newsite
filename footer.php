@@ -34,26 +34,31 @@
 <footer id="nrw-footer" class="nrw-footer">
     <div class="container-fluid">
         <div class="row">
-            <div class="col-4">
-                <ul>
-                    <li>
-                        <a href="#">Phone: 555-555-5555</a>
-                    </li>
-                    <li>
-                        <a href="#">Email: joshuaszuslik@gmail.com</a>
-                    </li>
-                    <li>
-                        <a href="#">Facebook: No Rules Web</a>
-                    </li>
-                </ul>
+            <div class="col-3">
+                <div class="nrw-footer-info-wrapper">
+                    <h4 class="nrw-footer-heading">Contact Us</h4>
+                    <ul class="nrw-footer-info-items">
+                        <li class="nrw-footer-info-item">
+                            <a href="tel:+15555555555">555-555-5555</a>
+                        </li>
+                        <li class="nrw-footer-info-item">
+                            <a href="mailto:joshuaszuslik@gmail.com">joshuaszuslik@gmail.com</a>
+                        </li>
+                        <li class="nrw-footer-info-item">
+                            <a href="https://www.facebook.com">No Rules Web</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
             <div class="col-3">
-                <h5>Location</h5>
-                <p>W257S6750 Fox Ct</p>
-                <p>Waukesha, WI 53189</p>
-                <p>By Appointment Only</p>
+                <div class="nrw-footer-info-wrapper">
+                    <h4 class="nrw-footer-heading">Location</h4>
+                    <p>W257S6750 Fox Ct</p>
+                    <p>Waukesha, WI 53189</p>
+                    <p>By Appointment Only</p>
+                </div>
             </div>
-            <div class="col-5">
+            <div class="col-6">
                 Insert form here
             </div>
         </div>
