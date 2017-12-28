@@ -24,7 +24,8 @@
 		width: 12.75rem;
 		height: 7.9375rem;
 		border: 1px solid;
-		border-color: rgba(255, 255, 255, 0.2);
+		border-color: rgba(252, 81, 48, 0.2);
+		//border-color: rgba(255, 255, 255, 0.2);
 		content: "";
 	  }
 
@@ -88,7 +89,8 @@
 	padding: 100px;
 
 	video {
-	  max-width: 100%;
+	  width: 721px;
+	  height: 405px;
 	}
   }
 }

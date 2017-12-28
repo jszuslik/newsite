@@ -68,6 +68,29 @@ class NrwDefault {
 		 * Homepage Sections
 		 */
 		$defaults['homepage_sections']                    = '';
+		$defaults['footer_cta_link']                      = '0';
+		$defaults['footer_cta_btn_text']                  = 'Contact Us';
+		$defaults['footer_locations_header']              = '';
+
+		/**
+		 * Footer
+		 */
+		$defaults['footer_cta_header']                    = '';
+
+		/**
+		 * Company Info
+		 */
+		$defaults['nrw_facebook']                         = '';
+		$defaults['nrw_twitter']                          = '';
+		$defaults['nrw_linkedin']                         = '';
+		$defaults['nrw_github']                           = '';
+		$defaults['nrw_phone_number']                     = '';
+		$defaults['nrw_email_address']                    = '';
+		$defaults['nrw_location']                         = 'Waukesha, Wisconsin';
+		$defaults['nrw_address1']                         = '';
+		$defaults['nrw_address2']                         = '';
+		$defaults['nrw_city_state_zip']                   = 'Waukesha, WI 53189';
+		$defaults['nrw_location_memo']                    = 'By Appointment Only';
 
 
 

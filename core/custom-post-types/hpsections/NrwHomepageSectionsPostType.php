@@ -89,6 +89,7 @@ class NrwHomepageSectionsPostType {
 			'show_ui'               => true,
 			'show_in_menu'          => true,
 			'menu_position'         => 5,
+			'menu_icon'             => 'dashicons-tagcloud',
 			'show_in_admin_bar'     => false,
 			'show_in_nav_menus'     => true,
 			'can_export'            => true,

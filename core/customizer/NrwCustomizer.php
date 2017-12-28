@@ -25,6 +25,8 @@ class NrwCustomizer {
 		nrw_require_file(NRW_CORE_PATH . 'customizer/header/NrwHeaderSetup.php');
 		nrw_require_file(NRW_CORE_PATH . 'customizer/jumbotron/NrwJumbotronSetup.php');
 		nrw_require_file(NRW_CORE_PATH . 'customizer/sections/NrwSectionsSetup.php');
+		nrw_require_file(NRW_CORE_PATH . 'customizer/footer/NrwFooterSetup.php');
+		nrw_require_file(NRW_CORE_PATH . 'customizer/info/NrwInfoSetup.php');
 	}
 
 	public function scripts() {

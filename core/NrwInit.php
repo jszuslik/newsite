@@ -7,6 +7,7 @@ class NrwInit {
 	}
 
 	public function init() {
+
 		nrw_require_file(NRW_CORE_PATH . 'NrwSetup.php');
 		nrw_require_file(NRW_CORE_PATH . 'bootstrap-navigation/WP_Bootstrap_Navwalker.php');
 
@@ -14,6 +15,7 @@ class NrwInit {
 		nrw_require_file(NRW_CORE_PATH . 'shared/NrwOptions.php');
 		nrw_require_file(NRW_CORE_PATH . 'custom-post-types/alerts/NrwAlertsPostType.php');
 		nrw_require_file(NRW_CORE_PATH . 'custom-post-types/hpsections/NrwHomepageSectionsPostType.php');
+		nrw_require_file(NRW_CORE_PATH . 'custom-post-types/locations-served/NrwLocationsServedPostType.php');
 		nrw_require_file(NRW_CORE_PATH . 'customizer/NrwCustomizer.php');
 		nrw_require_file(NRW_CORE_PATH . 'customizer/frontend/css/NrwFrontendCss.php');
 		nrw_require_file(NRW_CORE_PATH . 'customizer/frontend/js/NrwFrontendJs.php');
@@ -21,11 +23,18 @@ class NrwInit {
 		nrw_require_file(NRW_CORE_PATH . 'customizer/header/NrwHeaderHooks.php');
 		nrw_require_file(NRW_CORE_PATH . 'customizer/jumbotron/NrwJumbotronHooks.php');
 		nrw_require_file(NRW_CORE_PATH . 'customizer/sections/NrwSectionHooks.php');
+		nrw_require_file(NRW_CORE_PATH . 'customizer/footer/NrwFooterHooks.php');
 
 
 
+		nrw_require_file(NRW_CORE_PATH . 'customizer/sections/template-meta/NrwBaseMetaTemplate.php');
 		nrw_require_file(NRW_CORE_PATH . 'customizer/sections/template-meta/NrwTaglineMetaTemplate.php');
 		nrw_require_file(NRW_CORE_PATH . 'customizer/sections/template-meta/NrwFunnelsMetaTemplate.php');
+		nrw_require_file(NRW_CORE_PATH . 'customizer/sections/template-meta/NrwIntroMetaTemplate.php');
+		nrw_require_file(NRW_CORE_PATH . 'customizer/sections/template-meta/NrwProcessMetaTemplate.php');
+
+		nrw_require_file(NRW_CORE_PATH . 'meta-templates/NrwServicesPageMeta.php');
+		nrw_require_file(NRW_CORE_PATH . 'meta-templates/NrwServicePageMeta.php');
 	}
 
 }

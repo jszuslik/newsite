@@ -3,6 +3,11 @@
 	#primary {
 	  padding-top: 128px;
 	}
+	&.locations_served-template-default {
+	  #primary {
+		padding-top: 0;
+	  }
+	}
   }
 
 }

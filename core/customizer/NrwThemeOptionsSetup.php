@@ -27,6 +27,15 @@ class NrwThemeOptionsSetup {
 				'capability'  => 'edit_theme_options',
 			)
 		);
+
+		$wp_customize->add_panel(
+			'nrw_info_panel',
+			array(
+				'title'       => __( 'Company Info', NRW_TXT_DOMAIN ),
+				'priority'    => 100,
+				'capability'  => 'edit_theme_options',
+			)
+		);
 	}
 
 }

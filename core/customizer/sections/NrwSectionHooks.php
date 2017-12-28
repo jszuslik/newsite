@@ -14,6 +14,8 @@ class NrwSectionHooks {
 		add_action('nrw_action_homepage_sections', array($this, 'active_homepage_sections'), 1);
 		add_action('nrw_tagline_action', array($this, 'tagline'), 10);
 		add_action('nrw_funnel_action', array($this, 'funnels'), 10);
+		add_action('nrw_intro_cta_action', array($this, 'intro_cta'), 10);
+		add_action('nrw_process_section_action', array($this, 'process_section'), 10);
 	}
 
 	public function active_homepage_sections() {
@@ -34,6 +36,12 @@ class NrwSectionHooks {
 					case 'three-col-fun':
 						do_action('nrw_funnel_action');
 						break;
+                    case 'intro_cta':
+                        do_action('nrw_intro_cta_action');
+                        break;
+                    case 'process_section':
+                        do_action('nrw_process_section_action');
+                        break;
 				}
 
 			}
@@ -43,6 +51,89 @@ class NrwSectionHooks {
 
 		$post = $orig_post;
 	}
+
+	public function process_section() {
+		global $post;
+		$meta = get_post_meta($post->ID);
+		$id = $meta['nrw_section_id'][0];
+		$bg_color = $meta['base_bg_color'][0];
+		$header = $meta['nrw_process_header'][0];
+
+		$phases = 7;
+		$phase_arr = array();
+		for($i = 1; $i <= $phases; $i++) {
+		    if(isset($meta['nrw_process_phase_'. $i . '_title'][0]) &&
+               isset($meta['nrw_process_phase_'. $i . '_content'][0]) &&
+		       isset($meta['nrw_process_phase_'. $i . '_icon'][0])) {
+		        $phase_arr[] = array(
+                    'title'       => $meta['nrw_process_phase_'. $i . '_title'][0],
+                    'content'     => $meta['nrw_process_phase_'. $i . '_content'][0],
+                    'icon'        => $meta['nrw_process_phase_'. $i . '_icon'][0]
+                );
+            }
+        }
+		?>
+        <section id="<?php echo $id; ?>" class="nrw-process-section-wrapper"  style="background: <?php echo $bg_color; ?>;">
+            <div class="nrw-process-section">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <h2 class="nrw-process-header">
+	                            <?php echo $header; ?>
+                            </h2>
+                        </div>
+                        <?php foreach ($phase_arr as $phase) : ?>
+                        <div class="col-sm-6">
+                            <div class="nrw-process-outer-wrapper">
+                                <div class="nrw-process-inner-wrapper">
+                                    <div class="nrw-process-icon-wrapper">
+                                        <img src="<?php echo $phase['icon']; ?>" class="style-svg" />
+                                    </div>
+                                    <div class="nrw-process-content-wrapper">
+                                        <h3 class="nrw-process-content-header"><?php echo $phase['title']; ?></h3>
+                                        <p><?php echo $phase['content']; ?></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+            <?php endforeach; ?>
+                    </div>
+                </div>
+            </div>
+        </section>
+    <?php }
+
+	public function intro_cta() {
+	    global $post;
+	    $meta = get_post_meta($post->ID);
+	    $id = $meta['nrw_section_id'][0];
+	    $bg_color = $meta['base_bg_color'][0];
+	    $header_color = $meta['intro_header_color'][0];
+	    $header_text = $meta['nrw_intro_header'][0];
+	    $content = $meta['nrw_intro_content'][0];
+		$content_color = $meta['intro_content_color'][0];
+		$btn_text = $meta['nrw_intro_btn'][0];
+		$btn_link_id = $meta['nrw_intro_link'][0];
+        $btn_link = get_permalink($btn_link_id);
+	    ?>
+        <section id="<?php echo $id; ?>" class="nrw-intro-section" style="background: <?php echo $bg_color; ?>; border-color: <?php echo $header_color; ?>">
+            <div class="nrw-intro-cta-section">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-8">
+                            <h2 class="nrw-intro-title" style="color: <?php echo $header_color; ?>">
+                                <?php echo $header_text; ?>
+                            </h2>
+                            <p style="color: <?php echo $content_color; ?> "><?php echo $content; ?></p>
+                            <a href="<?php echo $btn_link; ?>" class="nrw-btn nrw-btn-orange"><?php echo $btn_text;
+                            ?></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    <?php }
 
 	public function tagline() {
 		global $post;
@@ -74,8 +165,7 @@ class NrwSectionHooks {
 				<div class="container">
 					<div class="row">
 						<div class="col-12">
-							<h2 class="nrw-tagline" style="color: <?php echo $text_color; ?>"><?php echo $tag_start .
-							                                                                       $tag_end; ?></h2>
+							<h2 class="nrw-tagline" style="color: <?php echo $text_color; ?>"><?php echo $tag_start . $tag_end; ?></h2>
 						</div>
 					</div>
 				</div>

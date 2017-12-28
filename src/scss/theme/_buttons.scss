@@ -1,4 +1,7 @@
 @include media-breakpoint-up(xs) {
+  button {
+	cursor: pointer;
+  }
   .nrw-btn {
 	display: inline-block;
 	font-family: $nrw-roboto;
@@ -31,6 +34,33 @@
 		color: #fff;
 		background: #000;
 	  }
+	}
+
+	&.nrw-btn-blue {
+	  color: #fff;
+	  border-color: #03a9f4;
+	  background: #03a9f4;
+	  &:hover {
+		text-decoration: none;
+		color: #03a9f4;
+		background: transparent;
+	  }
+	}
+
+	&.nrw-btn-orange {
+	  color: #fff;
+	  border-color: #FC5130;
+	  background: #FC5130;
+	  &:hover {
+		text-decoration: none;
+		color: #FC5130;
+		background: transparent;
+	  }
+	}
+
+	&.nrw-btn-full {
+	  display: block;
+	  width: 100%
 	}
   }
 }

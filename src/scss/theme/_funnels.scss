@@ -16,7 +16,10 @@
 	  padding: 50px 75px;
 
 	  svg {
-		max-height: 150px;
+		display: block;
+		height: 150px;
+		width: auto;
+		margin: 0 auto;
 	  }
 	}
 

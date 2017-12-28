@@ -1,0 +1,60 @@
+@include media-breakpoint-up(xs) {
+  .nrw-process-section-wrapper {
+	padding: 75px 0;
+
+	.nrw-process-header {
+	  font-family: $nrw-montserrat;
+	  font-size: 40px;
+	  text-align: center;
+	  font-weight: 700;
+	  text-transform: uppercase;
+	  margin-bottom: 50px;
+	}
+
+	.nrw-process-outer-wrapper {
+	  display: table;
+	  padding: 30px 0;
+
+	  .nrw-process-inner-wrapper {
+		display: table-row;
+
+		.nrw-process-icon-wrapper {
+		  display: table-cell;
+		  width: 30%;
+		  vertical-align: middle;
+
+		  svg {
+			display: block;
+			height: 150px;
+			width: 160px;
+		  }
+		}
+
+		.nrw-process-content-wrapper {
+		  padding: 0 15px;
+		  display: table-cell;
+		  vertical-align: middle;
+		  width: 69%;
+
+		  .nrw-process-content-header {
+			text-transform: uppercase;
+			font-family: $nrw-montserrat;
+			font-weight: 700;
+		  }
+		}
+	  }
+	}
+  }
+}
+
+@include media-breakpoint-up(sm) {
+}
+
+@include media-breakpoint-up(md) {
+}
+
+@include media-breakpoint-up(lg) {
+}
+
+@include media-breakpoint-up(xl) {
+}

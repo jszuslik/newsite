@@ -1,0 +1,38 @@
+@include media-breakpoint-up(xs) {
+  #nrw-services-page-content {
+	margin-top: -75px;
+	padding-bottom: 75px;
+
+	.nrw-service-funnel-icon-wrapper {
+	  text-align: center;
+
+	  svg {
+		max-height: 200px;
+		margin-bottom: 50px;
+	  }
+	}
+
+	.nrw-service-funnel-content-wrapper {
+	  text-align: center;
+
+	  .funnel-title {
+		font-family: $nrw-montserrat;
+		text-transform: uppercase;
+		font-weight: 600;
+		color: #03a9f4;
+	  }
+	}
+  }
+}
+
+@include media-breakpoint-up(sm) {
+}
+
+@include media-breakpoint-up(md) {
+}
+
+@include media-breakpoint-up(lg) {
+}
+
+@include media-breakpoint-up(xl) {
+}

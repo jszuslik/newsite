@@ -1,0 +1,33 @@
+@include media-breakpoint-up(xs) {
+  .nrw-intro-section {
+	position: relative;
+	padding: 50px 0;
+	border-top: 3px solid;
+	border-bottom: 3px solid;
+
+	.nrw-intro-title {
+	  font-family: $nrw-montserrat;
+	  font-weight: 600;
+	  letter-spacing: 1.5px;
+	  text-transform: uppercase;
+	}
+
+	p {
+	  font-family: $nrw-roboto;
+	  font-size: 18px;
+	  font-weight: 300;
+	}
+  }
+}
+
+@include media-breakpoint-up(sm) {
+}
+
+@include media-breakpoint-up(md) {
+}
+
+@include media-breakpoint-up(lg) {
+}
+
+@include media-breakpoint-up(xl) {
+}

@@ -1,0 +1,57 @@
+@include media-breakpoint-up(xs) {
+  #nrw-page-jumbotron {
+
+	.nrw-page-header-wrapper {
+	  margin-top: 180px;
+	  margin-bottom: 110px;
+	  padding: 0 200px;
+
+	  .nrw-page-header {
+		font-family: $nrw-montserrat;
+		text-transform: uppercase;
+		text-align: center;
+		color: #fff;
+
+		&::before {
+		  position: absolute;
+		  top: 5rem;
+		  left: 4.125rem;
+		  width: 12.75rem;
+		  height: 7.9375rem;
+		  border: 1px solid;
+		  border-color: rgba(255, 255, 255, 0.2);
+		  content: "";
+		}
+
+		&::after {
+		  position: absolute;
+		  right: 1rem;
+		  bottom: 3rem;
+		  width: 9.375rem;
+		  height: 6.375rem;
+		  border: 1px solid;
+		  content: "";
+		  z-index: 1;
+		  border-color: rgba(3, 169, 244, 0.5);
+		}
+	  }
+
+	  p {
+		color: $nrw-light-text;
+		text-align: center;
+	  }
+	}
+  }
+}
+
+@include media-breakpoint-up(sm) {
+}
+
+@include media-breakpoint-up(md) {
+}
+
+@include media-breakpoint-up(lg) {
+}
+
+@include media-breakpoint-up(xl) {
+}
