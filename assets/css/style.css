@@ -12450,10 +12450,21 @@ button {
 .nrw-footer .nrw-footer-info-item-inner-wrapper .nrw-footer-info-item-icon-wrap .icon {
   display: table-cell;
   vertical-align: middle;
+  text-align: center;
+}
+
+.nrw-footer .nrw-footer-info-item-inner-wrapper .nrw-footer-info-item-icon-wrap .icon.social-icon {
+  height: 60px;
+  width: 60px;
 }
 
 .nrw-footer .nrw-footer-info-item-inner-wrapper .nrw-footer-info-item-icon-wrap .icon .icon-link {
   color: #03a9f4;
+  font-size: 18px;
+}
+
+.nrw-footer .nrw-footer-info-item-inner-wrapper .nrw-footer-info-item-icon-wrap .icon .icon-link.social-icon-link {
+  font-size: 32px;
 }
 
 .nrw-footer .nrw-footer-info-item-inner-wrapper .nrw-footer-info-item-icon-wrap .nrw-footer-info-item-text {
@@ -12466,6 +12477,11 @@ button {
 
 .nrw-footer .nrw-footer-info-item-inner-wrapper .nrw-footer-info-item-icon-wrap .nrw-footer-info-item-text .text-link {
   color: #fff;
+}
+
+.nrw-footer .nrw-footer-info-item-inner-wrapper .nrw-footer-info-item-icon-wrap .nrw-footer-info-item-text .text-link:hover {
+  text-decoration: none;
+  color: #03a9f4;
 }
 
 .nrw-footer .nrw-footer-info-item-inner-wrapper .location {

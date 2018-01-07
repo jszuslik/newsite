@@ -83,6 +83,7 @@ class NrwDefault {
 		$defaults['nrw_facebook']                         = '';
 		$defaults['nrw_twitter']                          = '';
 		$defaults['nrw_linkedin']                         = '';
+		$defaults['nrw_instagram']                         = '';
 		$defaults['nrw_github']                           = '';
 		$defaults['nrw_phone_number']                     = '';
 		$defaults['nrw_email_address']                    = '';

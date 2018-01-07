@@ -14,6 +14,10 @@ class NrwFooterHooks {
 		add_action('nrw_action_footer_cta', array($this, 'nrw_footer_cta'), 10);
 		add_action('nrw_action_footer_locations_served', array($this, 'nrw_footer_locations_served'), 10);
 		add_action('nrw_action_footer_company_info', array($this, 'nrw_footer_company_info'), 10);
+		add_action( 'wp_enqueue_scripts', array($this, 'nrw_ftr_ajax_localize_script') );
+
+		add_action( 'wp_ajax_nopriv_nrw_save_ftr_submission', array($this, 'nrw_save_ftr_submission') );
+		add_action( 'wp_ajax_nrw_save_ftr_submission', array($this, 'nrw_save_ftr_submission') );
 	}
 
 	public function nrw_footer_cta() {
@@ -69,14 +73,92 @@ class NrwFooterHooks {
             <div class="container-fluid">
                 <div class="row">
                     <?php $this->nrw_contact_column(); ?>
+                    <?php $this->nrw_location_column(); ?>
+                    <?php $this->nrw_ftr_contact_form(); ?>
                 </div>
             </div>
         </footer>
     <?php }
 
-    public function nrw_social_media_info() {
+    public function nrw_ftr_contact_form() { ?>
+        <div class="col-4">
+            <div class="nrw-footer-info-wrapper">
+                <div class="nrw-footer-info-items">
+                    <div class="nrw-footer-info-item-outer-wrapper">
+                        <div class="nrw-footer-info-item-inner-wrapper">
+                            <h4 class="nrw-footer-heading">Send us a message</h4>
+                            <form id="nrw-footer-contact">
+                                <div class="nrw-input-group-wrapper">
+                                    <input type="hidden" id="action" name="action" value="nrw_save_ftr_submission">
+                                    <div class="nrw-input-text-wrapper nrw-input-half nrw-input-left">
+                                        <input type="text" id="nrw_name" name="nrw_name" placeholder="Your Name" required>
+                                    </div>
+                                    <div class="nrw-input-text-wrapper nrw-input-half nrw-input-right">
+                                        <input type="email" id="nrw_email" name="nrw_email" placeholder="Your Email" required>
+                                    </div>
+                                    <div class="nrw-input-text-wrapper">
+                                        <input type="text" id="nrw_subject" name="nrw_subject" placeholder="Subject">
+                                    </div>
+                                    <div class="nrw-input-text-wrapper">
+                                        <textarea id="nrw_message" name="nrw_message" placeholder="Your Message"></textarea>
+                                    </div>
+                                </div>
+                                <button type="submit" class="nrw-btn nrw-btn-blue nrw-btn-full">Send Your Message</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <?php }
 
-    }
+    public function nrw_social_media_info() {
+        $facebook_url = NrwCore::get_option('nrw_facebook');
+        $twitter_url = NrwCore::get_option('nrw_twitter');
+        $linkedin_url = NrwCore::get_option('nrw_linkedin');
+        $instagram_url = NrwCore::get_option('nrw_instagram');
+	    $github_url = NrwCore::get_option('nrw_github');
+
+
+	    ?>
+        <div class="nrw-footer-info-item-icon-wrap">
+        <?php if(isset($facebook_url) && strlen($facebook_url) > 0) : ?>
+            <span class="icon social-icon">
+                <a href="<?php echo $facebook_url; ?>" target="_blank" class="icon-link social-icon-link">
+                    <i class="fa fa-facebook-square"></i>
+                </a>
+            </span>
+        <?php endif; ?>
+	    <?php if(isset($twitter_url) && strlen($twitter_url) > 0) : ?>
+            <span class="icon social-icon">
+                <a href="<?php echo $twitter_url; ?>" target="_blank" class="icon-link social-icon-link">
+                    <i class="fa fa-twitter-square"></i>
+                </a>
+            </span>
+	    <?php endif; ?>
+	    <?php if(isset($linkedin_url) && strlen($linkedin_url) > 0) : ?>
+            <span class="icon social-icon">
+                <a href="<?php echo $linkedin_url; ?>" target="_blank" class="icon-link social-icon-link">
+                    <i class="fa fa-linkedin-square"></i>
+                </a>
+            </span>
+	    <?php endif; ?>
+	    <?php if(isset($instagram_url) && strlen($instagram_url) > 0) : ?>
+            <span class="icon social-icon">
+                <a href="<?php echo $instagram_url; ?>" target="_blank" class="icon-link social-icon-link">
+                    <i class="fa fa-instagram"></i>
+                </a>
+            </span>
+	    <?php endif; ?>
+	    <?php if(isset($github_url) && strlen($github_url) > 0) : ?>
+            <span class="icon social-icon">
+                <a href="<?php echo $github_url; ?>" target="_blank" class="icon-link social-icon-link">
+                    <i class="fa fa-github-square"></i>
+                </a>
+            </span>
+	    <?php endif; ?>
+        </div>
+    <?php }
 
     private function sanitize_phone_number($phone) {
 	    if(!isset($phone{3})) { return ''; }
@@ -149,16 +231,7 @@ class NrwFooterHooks {
                     </div>
                     <div class="nrw-footer-info-item-outer-wrapper">
                         <div class="nrw-footer-info-item-inner-wrapper">
-                            <div class="nrw-footer-info-item-icon-wrap">
-                                            <span class="icon">
-                                                <a href="#" class="icon-link">
-                                                    <i class="fa fa-facebook"></i>
-                                                </a>
-                                            </span>
-                                <div class="nrw-footer-info-item-text">
-                                    <a href="#" class="text-link">No Rules Web</a>
-                                </div>
-                            </div>
+                            <?php $this->nrw_social_media_info(); ?>
                         </div>
                     </div>
                 </div>
@@ -167,7 +240,74 @@ class NrwFooterHooks {
     <?php }
 
     public function nrw_location_column() {
+	    $location = null;
+	    $address1 = null;
+	    $address2 = null;
+	    $citystatezip = null;
+	    $memo = null;
+	    if(NrwCore::get_option('nrw_location') != null) {
+		    $location = NrwCore::get_option('nrw_location');
+        }
+	    if(NrwCore::get_option('nrw_address1') != null) {
+		    $address1 = NrwCore::get_option('nrw_address1');
+	    }
+	    if(NrwCore::get_option('nrw_address2') != null) {
+		    $address2 = NrwCore::get_option('nrw_address2');
+	    }
+	    if(NrwCore::get_option('nrw_city_state_zip') != null) {
+		    $citystatezip = NrwCore::get_option('nrw_city_state_zip');
+	    }
+	    if(NrwCore::get_option('nrw_location_memo') != null) {
+		    $memo = NrwCore::get_option('nrw_location_memo');
+	    }
 
+
+	    ?>
+        <div class="col-3">
+            <div class="nrw-footer-info-wrapper">
+                <div class="nrw-footer-info-items">
+                    <div class="nrw-footer-info-item-outer-wrapper">
+                        <div class="nrw-footer-info-item-inner-wrapper">
+                            <h4 class="nrw-footer-heading">Location</h4>
+	                        <?php if($location != null ) : ?>
+                                <p class="location location-header"><?php echo $location; ?></p>
+                            <?php endif; ?>
+	                        <?php if($address1 != null ) : ?>
+                                <p class="location location-address"><?php echo $address1; ?></p>
+                            <?php endif; ?>
+	                        <?php if($address2 != null ) : ?>
+                                <p class="location location-address"><?php echo $address2; ?></p>
+	                        <?php endif; ?>
+	                        <?php if($citystatezip != null ) : ?>
+                                <p class="location location-address"><?php echo $citystatezip; ?></p>
+	                        <?php endif; ?>
+	                        <?php if($memo != null ) : ?>
+                                <p class="location location-appt"><?php echo $memo; ?></p>
+	                        <?php endif; ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    <?php }
+
+    public function nrw_save_ftr_submission() {
+	    $data = array(
+            'name'          => filter_var($_POST['nrw_name'], FILTER_SANITIZE_STRING),
+            'email'          => filter_var($_POST['nrw_email'], FILTER_SANITIZE_STRING),
+            'subject'          => filter_var($_POST['nrw_subject'], FILTER_SANITIZE_STRING),
+            'message'          => filter_var($_POST['nrw_message'], FILTER_SANITIZE_STRING)
+        );
+
+	    echo json_encode($data);
+	    die();
+    }
+
+    public function nrw_ftr_ajax_localize_script() {
+	    wp_enqueue_script('nrw_ftr_form_script', get_template_directory_uri() . '/admin/js/form-ajax.js', array('jquery'), false, true);
+
+	    wp_localize_script('nrw_ftr_form_script', 'nrw_ftr_ajax', array('ajax_url' => admin_url('admin-ajax.php')));
     }
 }
 $nrwfooterhooks = new NrwFooterHooks();

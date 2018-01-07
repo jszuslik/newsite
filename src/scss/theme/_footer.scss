@@ -84,9 +84,20 @@
 		.icon {
 		  display: table-cell;
 		  vertical-align: middle;
+		  text-align: center;
+
+		  &.social-icon {
+			height: 60px;
+			width: 60px;
+		  }
 
 		  .icon-link {
 			color: #03a9f4;
+			font-size: 18px;
+
+			&.social-icon-link {
+			  font-size: 32px;
+			}
 		  }
 		}
 
@@ -99,6 +110,11 @@
 
 		  .text-link {
 			color: #fff;
+
+			&:hover {
+			  text-decoration: none;
+			  color: #03a9f4;
+			}
 		  }
 		}
 	  }

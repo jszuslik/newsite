@@ -31,7 +31,7 @@ class NrwFooterSetup {
 		$wp_customize->add_setting(
 			'theme_options[footer_cta_header]',
 			array(
-				'default'            => $this->default['ticker_title'],
+				'default'            => $this->default['footer_cta_header'],
 				'capability'         => 'edit_theme_options',
 				'sanatize_callback'  => 'sanitize_text_field'
 			)

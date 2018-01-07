@@ -45,6 +45,74 @@ class NrwInfoSetup {
 				'priority'          => 100
 			)
 		);
+		$wp_customize->add_setting(
+			'theme_options[nrw_twitter]',
+			array(
+				'default'            => $this->default['nrw_twitter'],
+				'capability'         => 'edit_theme_options',
+				'sanatize_callback'  => 'sanitize_text_field'
+			)
+		);
+		$wp_customize->add_control(
+			'theme_options[nrw_twitter]',
+			array(
+				'label'             => __('Twitter URL', NRW_TXT_DOMAIN),
+				'section'           => 'section_social_media',
+				'type'              => 'text',
+				'priority'          => 100
+			)
+		);
+		$wp_customize->add_setting(
+			'theme_options[nrw_linkedin]',
+			array(
+				'default'            => $this->default['nrw_linkedin'],
+				'capability'         => 'edit_theme_options',
+				'sanatize_callback'  => 'sanitize_text_field'
+			)
+		);
+		$wp_customize->add_control(
+			'theme_options[nrw_linkedin]',
+			array(
+				'label'             => __('LinkedIn URL', NRW_TXT_DOMAIN),
+				'section'           => 'section_social_media',
+				'type'              => 'text',
+				'priority'          => 100
+			)
+		);
+		$wp_customize->add_setting(
+			'theme_options[nrw_instagram]',
+			array(
+				'default'            => $this->default['nrw_instagram'],
+				'capability'         => 'edit_theme_options',
+				'sanatize_callback'  => 'sanitize_text_field'
+			)
+		);
+		$wp_customize->add_control(
+			'theme_options[nrw_instagram]',
+			array(
+				'label'             => __('Instagram URL', NRW_TXT_DOMAIN),
+				'section'           => 'section_social_media',
+				'type'              => 'text',
+				'priority'          => 100
+			)
+		);
+		$wp_customize->add_setting(
+			'theme_options[nrw_github]',
+			array(
+				'default'            => $this->default['nrw_github'],
+				'capability'         => 'edit_theme_options',
+				'sanatize_callback'  => 'sanitize_text_field'
+			)
+		);
+		$wp_customize->add_control(
+			'theme_options[nrw_github]',
+			array(
+				'label'             => __('Github URL', NRW_TXT_DOMAIN),
+				'section'           => 'section_social_media',
+				'type'              => 'text',
+				'priority'          => 100
+			)
+		);
 
 		$wp_customize->add_section(
 			'section_contact_info',
