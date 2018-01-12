@@ -20,7 +20,7 @@
 
 .navbar-brand h2 span {
     position: absolute;
-    font-family: 'Anders', 'Roboto', sans-serif;
+    font-family: 'andersregular', 'Roboto', sans-serif;
     display: block;
     text-align: center;
     -webkit-transition: all 0.3s;

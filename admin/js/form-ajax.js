@@ -11,10 +11,26 @@ jQuery('#nrw-footer-contact').submit(function (event) {
         type: 'post',
         data: values,
         success: function (response) {
-            alert('Success');
-            console.log(response);
+            var j = JSON.parse(response);
+            var form = jQuery('#nrw-footer-contact');
+            form.find("input[type=text], input[type=email], textarea").val("");
+            form.replaceWith(j.msg);
+            // nrw_send_email();
         }
     });
 
     event.preventDefault();
 });
+
+function nrw_send_email() {
+    jQuery.ajax({
+       url: nrw_ftr_ajax.ajax_url,
+       type: 'post',
+       data: {
+           action: 'nrw_send_form_submission'
+       },
+       success: function (response) {
+           console.log(response);
+       }
+    });
+}

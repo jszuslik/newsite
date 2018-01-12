@@ -189,6 +189,30 @@
 	}
   }
 
+  .nrw-form-success {
+	padding: 30px 15px;
+	border: 1px soild green;
+	border-radius: 15px;
+	background-color: lime;
+
+	h5 {
+	  text-align: center;
+	  color: green;
+	}
+  }
+
+  .nrw-form-error {
+	padding: 30px 15px;
+	border: 1px soild red;
+	border-radius: 15px;
+	background-color: palevioletred;
+
+	h5 {
+	  text-align: center;
+	  color: red;
+	}
+  }
+
 
 }
 

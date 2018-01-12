@@ -12553,3 +12553,27 @@ button {
 .nrw-footer .nrw-input-group-wrapper .nrw-input-text-wrapper textarea {
   min-height: 130px;
 }
+
+.nrw-form-success {
+  padding: 30px 15px;
+  border: 1px soild green;
+  border-radius: 15px;
+  background-color: lime;
+}
+
+.nrw-form-success h5 {
+  text-align: center;
+  color: green;
+}
+
+.nrw-form-error {
+  padding: 30px 15px;
+  border: 1px soild red;
+  border-radius: 15px;
+  background-color: palevioletred;
+}
+
+.nrw-form-error h5 {
+  text-align: center;
+  color: red;
+}

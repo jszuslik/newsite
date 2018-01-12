@@ -14,10 +14,6 @@ class NrwFooterHooks {
 		add_action('nrw_action_footer_cta', array($this, 'nrw_footer_cta'), 10);
 		add_action('nrw_action_footer_locations_served', array($this, 'nrw_footer_locations_served'), 10);
 		add_action('nrw_action_footer_company_info', array($this, 'nrw_footer_company_info'), 10);
-		add_action( 'wp_enqueue_scripts', array($this, 'nrw_ftr_ajax_localize_script') );
-
-		add_action( 'wp_ajax_nopriv_nrw_save_ftr_submission', array($this, 'nrw_save_ftr_submission') );
-		add_action( 'wp_ajax_nrw_save_ftr_submission', array($this, 'nrw_save_ftr_submission') );
 	}
 
 	public function nrw_footer_cta() {
@@ -87,24 +83,7 @@ class NrwFooterHooks {
                     <div class="nrw-footer-info-item-outer-wrapper">
                         <div class="nrw-footer-info-item-inner-wrapper">
                             <h4 class="nrw-footer-heading">Send us a message</h4>
-                            <form id="nrw-footer-contact">
-                                <div class="nrw-input-group-wrapper">
-                                    <input type="hidden" id="action" name="action" value="nrw_save_ftr_submission">
-                                    <div class="nrw-input-text-wrapper nrw-input-half nrw-input-left">
-                                        <input type="text" id="nrw_name" name="nrw_name" placeholder="Your Name" required>
-                                    </div>
-                                    <div class="nrw-input-text-wrapper nrw-input-half nrw-input-right">
-                                        <input type="email" id="nrw_email" name="nrw_email" placeholder="Your Email" required>
-                                    </div>
-                                    <div class="nrw-input-text-wrapper">
-                                        <input type="text" id="nrw_subject" name="nrw_subject" placeholder="Subject">
-                                    </div>
-                                    <div class="nrw-input-text-wrapper">
-                                        <textarea id="nrw_message" name="nrw_message" placeholder="Your Message"></textarea>
-                                    </div>
-                                </div>
-                                <button type="submit" class="nrw-btn nrw-btn-blue nrw-btn-full">Send Your Message</button>
-                            </form>
+                            <?php do_action('nrw_action_footer_form'); ?>
                         </div>
                     </div>
                 </div>
@@ -118,8 +97,6 @@ class NrwFooterHooks {
         $linkedin_url = NrwCore::get_option('nrw_linkedin');
         $instagram_url = NrwCore::get_option('nrw_instagram');
 	    $github_url = NrwCore::get_option('nrw_github');
-
-
 	    ?>
         <div class="nrw-footer-info-item-icon-wrap">
         <?php if(isset($facebook_url) && strlen($facebook_url) > 0) : ?>
@@ -292,23 +269,16 @@ class NrwFooterHooks {
 
     <?php }
 
-    public function nrw_save_ftr_submission() {
-	    $data = array(
-            'name'          => filter_var($_POST['nrw_name'], FILTER_SANITIZE_STRING),
-            'email'          => filter_var($_POST['nrw_email'], FILTER_SANITIZE_STRING),
-            'subject'          => filter_var($_POST['nrw_subject'], FILTER_SANITIZE_STRING),
-            'message'          => filter_var($_POST['nrw_message'], FILTER_SANITIZE_STRING)
-        );
+    public function nrw_footer_copyright() {
+	    ?>
+        <section id="nrw-footer-copyright">
+            <div class="container-fluid">
+                
+            </div>
+        </section>
+    <?php }
 
-	    echo json_encode($data);
-	    die();
-    }
 
-    public function nrw_ftr_ajax_localize_script() {
-	    wp_enqueue_script('nrw_ftr_form_script', get_template_directory_uri() . '/admin/js/form-ajax.js', array('jquery'), false, true);
-
-	    wp_localize_script('nrw_ftr_form_script', 'nrw_ftr_ajax', array('ajax_url' => admin_url('admin-ajax.php')));
-    }
 }
 $nrwfooterhooks = new NrwFooterHooks();
 $nrwfooterhooks->init();
