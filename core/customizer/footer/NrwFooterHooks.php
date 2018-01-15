@@ -273,7 +273,7 @@ class NrwFooterHooks {
 	    ?>
         <section id="nrw-footer-copyright">
             <div class="container-fluid">
-                
+
             </div>
         </section>
     <?php }
