@@ -2,6 +2,32 @@
   .nrw-process-section-wrapper {
 	padding: 75px 0;
 
+	.nrw-card {
+	  position: relative;
+	  max-width: 22rem;
+	  margin: 30px auto;
+	  min-height: 350px;
+
+	  .card-header {
+		padding: 4rem 1.25rem 0;
+		position: relative;
+		background-color: #03a9f4;
+
+		svg {
+		  position: absolute;
+		  right: 15px;
+		  top: 15px;
+		  display: block;
+		  height: 50px;
+		  width: 60px;
+		}
+
+		.card-title {
+		  color: $nrw-light-text;
+		}
+	  }
+	}
+
 	.nrw-process-header {
 	  font-family: $nrw-montserrat;
 	  font-size: 40px;

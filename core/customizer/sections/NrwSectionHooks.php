@@ -16,6 +16,8 @@ class NrwSectionHooks {
 		add_action('nrw_funnel_action', array($this, 'funnels'), 10);
 		add_action('nrw_intro_cta_action', array($this, 'intro_cta'), 10);
 		add_action('nrw_process_section_action', array($this, 'process_section'), 10);
+		add_action('nrw_choose_us_section_action', array($this, 'choose_us_section'), 10);
+
 	}
 
 	public function active_homepage_sections() {
@@ -42,6 +44,9 @@ class NrwSectionHooks {
                     case 'process_section':
                         do_action('nrw_process_section_action');
                         break;
+                    case 'choose_us':
+                        do_action('nrw_choose_us_section_action');
+                        break;
 				}
 
 			}
@@ -51,6 +56,63 @@ class NrwSectionHooks {
 
 		$post = $orig_post;
 	}
+
+	public function choose_us_section() {
+		global $post;
+		$meta = get_post_meta($post->ID);
+		$id = $meta['nrw_section_id'][0];
+		$bg_color = $meta['base_bg_color'][0];
+		$header_color = $meta['choose_header_color'][0];
+		$header_text = $meta['nrw_choose_header'][0];
+
+		$header_arr = explode(' ', $header_text);
+
+		$c = count($header_arr);
+		$d = round(($c/2), 0, PHP_ROUND_HALF_UP);
+
+		$header_start = '';
+		$header_end = '';
+
+		for($i = 0; $i < $c; $i++) {
+			if($i < $d) {
+			    $header_start .= $header_arr[$i] . ' ';
+			} else {
+				$header_end .= $header_arr[$i] . ' ';
+            }
+		}
+
+		$content_1 = $meta['nrw_choose_content_1'][0];
+		$content_2 = $meta['nrw_choose_content_2'][0];
+		$content_3 = $meta['nrw_choose_content_3'][0];
+		?>
+
+        <section id="<?php echo $id; ?>" class="nrw-process-section-wrapper"  style="background: <?php echo $bg_color; ?>;">
+            <div class="nrw-choose-us-section">
+                <div class="container" style="max-width: 955px;">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="nrw-choose-header">
+                                <h2 class="nrw-choose-title" style="color: <?php echo $header_color; ?>">
+                                    <?php echo $header_start; ?>
+                                </h2>
+                                <br>
+                                <h2 class="nrw-choose-title" style="color: <?php echo $header_color; ?>">
+                                    <?php echo $header_end; ?>
+                                </h2>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <p class="nrw-choose-desc-bold-color" style="color: <?php echo $header_color; ?>"><?php echo $content_1; ?></p>
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <p class="card-text"><?php echo $content_2; ?></p>
+                            <p class="card-text"><?php echo $content_3; ?></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    <?php }
 
 	public function process_section() {
 		global $post;
@@ -73,9 +135,38 @@ class NrwSectionHooks {
             }
         }
 		?>
-        <section id="<?php echo $id; ?>" class="nrw-process-section-wrapper"  style="background: <?php echo $bg_color; ?>;">
+        <section id="<?php echo $id; ?>" class="nrw-process-section-wrapper">
             <div class="nrw-process-section">
-                <div class="container">
+                <div class="container-fluid" style="background: <?php echo $bg_color; ?>;">
+                    <div class="row">
+                        <div class="col-12">
+                            <h2 class="nrw-process-header">
+			                    <?php echo $header; ?>
+                            </h2>
+                        </div>
+		<?php
+        $ph_i = 1;
+        foreach ($phase_arr as $phase) :
+            $col = 'col-md-4';
+            if($ph_i <=4) {
+	            $col = 'col-md-3';
+            }
+            ?>
+                        <div class="col-6 <?php echo $col; ?>">
+                            <div class="card nrw-card">
+                                <div class="card-header">
+                                    <img class="card-img-top style-svg" src="<?php echo $phase['icon']; ?>">
+                                    <h5 class="card-title"><?php echo $phase['title']; ?></h5>
+                                </div>
+                                <div class="card-body">
+                                    <p class="card-text"><?php echo $phase['content']; ?></p>
+                                </div>
+                            </div>
+                        </div>
+		<?php
+        $ph_i++;
+        endforeach; ?>
+                    </div>
                     <div class="row">
                         <div class="col-12">
                             <h2 class="nrw-process-header">
@@ -120,7 +211,7 @@ class NrwSectionHooks {
             <div class="nrw-intro-cta-section">
                 <div class="container">
                     <div class="row">
-                        <div class="col-8">
+                        <div class="col-12">
                             <h2 class="nrw-intro-title" style="color: <?php echo $header_color; ?>">
                                 <?php echo $header_text; ?>
                             </h2>

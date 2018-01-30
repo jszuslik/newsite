@@ -1,0 +1,45 @@
+@include media-breakpoint-up(xs) {
+  .nrw-choose-us-section {
+	position: relative;
+
+	.nrw-choose-header {
+	  margin-bottom: 50px;
+
+	  .nrw-choose-title {
+		font-size: 2.2rem;
+		font-family: $nrw-montserrat;
+		font-weight: 600;
+		letter-spacing: 1px;
+		display: inline;
+		background: -webkit-gradient(linear, left top, left bottom, color-stop(50%, #FC5130), color-stop(50%, #FC5130)) repeat-x 0 90%;
+		background: linear-gradient(#FC5130 50%, #FC5130 0) repeat-x 0 90%;
+		background-size: auto auto;
+		background-size: 1px 1px;
+	  }
+	}
+
+	p {
+	  font-family: $nrw-roboto;
+	  font-weight: 300;
+	  font-size: 18px;
+	  line-height: 2.0625rem;
+
+	  &.nrw-choose-desc-bold-color {
+		font-family: $nrw-montserrat;
+		font-weight: 600;
+	  }
+	}
+  }
+}
+
+@include media-breakpoint-up(sm) {
+}
+
+@include media-breakpoint-up(md) {
+}
+
+@include media-breakpoint-up(lg) {
+}
+
+@include media-breakpoint-up(xl) {
+}

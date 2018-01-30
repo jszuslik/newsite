@@ -11570,6 +11570,12 @@ button {
   width: 100%;
 }
 
+.card h5.card-title {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  font-size: 1.3em;
+}
+
 .tophead {
   display: flex;
   background-color: #ffffff;
@@ -11990,6 +11996,10 @@ button {
   background: #8e8f90;
 }
 
+.navbar {
+  box-shadow: none;
+}
+
 .navbar .navbar-nav {
   position: relative;
   display: inline-block;
@@ -12072,7 +12082,7 @@ button {
 }
 
 .nrw-fixed-top #nrw-jumbotron {
-  padding-top: 128px;
+  padding-top: 126px;
 }
 
 .nrw-fixed-top.nrw-news-ticker #nrw-jumbotron {
@@ -12181,8 +12191,9 @@ button {
 }
 
 .funnel {
-  margin: 0 50px;
+  margin: 0;
   padding-bottom: 50px;
+  min-height: 555px;
 }
 
 .funnel.funnel-featured {
@@ -12242,6 +12253,32 @@ button {
   padding: 75px 0;
 }
 
+.nrw-process-section-wrapper .nrw-card {
+  position: relative;
+  max-width: 22rem;
+  margin: 30px auto;
+  min-height: 350px;
+}
+
+.nrw-process-section-wrapper .nrw-card .card-header {
+  padding: 4rem 1.25rem 0;
+  position: relative;
+  background-color: #03a9f4;
+}
+
+.nrw-process-section-wrapper .nrw-card .card-header svg {
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  display: block;
+  height: 50px;
+  width: 60px;
+}
+
+.nrw-process-section-wrapper .nrw-card .card-header .card-title {
+  color: #fff;
+}
+
 .nrw-process-section-wrapper .nrw-process-header {
   font-family: "Montserrat", sans-serif;
   font-size: 40px;
@@ -12283,6 +12320,38 @@ button {
   text-transform: uppercase;
   font-family: "Montserrat", sans-serif;
   font-weight: 700;
+}
+
+.nrw-choose-us-section {
+  position: relative;
+}
+
+.nrw-choose-us-section .nrw-choose-header {
+  margin-bottom: 50px;
+}
+
+.nrw-choose-us-section .nrw-choose-header .nrw-choose-title {
+  font-size: 2.2rem;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  letter-spacing: 1px;
+  display: inline;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(50%, #FC5130), color-stop(50%, #FC5130)) repeat-x 0 90%;
+  background: linear-gradient(#FC5130 50%, #FC5130 0) repeat-x 0 90%;
+  background-size: auto auto;
+  background-size: 1px 1px;
+}
+
+.nrw-choose-us-section p {
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 2.0625rem;
+}
+
+.nrw-choose-us-section p.nrw-choose-desc-bold-color {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
 }
 
 #nrw-page-jumbotron .nrw-page-header-wrapper {

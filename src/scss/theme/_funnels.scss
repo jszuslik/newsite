@@ -1,7 +1,8 @@
 @include media-breakpoint-up(xs) {
   .funnel {
-	margin: 0 50px;
+	margin: 0;
 	padding-bottom: 50px;
+	min-height: 555px;
 
 	&.funnel-normal {
 

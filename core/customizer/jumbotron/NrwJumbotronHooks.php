@@ -44,6 +44,18 @@ class NrwJumbotronHooks {
 	    $container = NrwCore::get_option('jumbo_container_width');
 	    $custom_css[] = NrwCore::get_option('jumbotron_classes');
 	    $header = NrwCore::get_option('jumbotron_header');
+	    if(strpos($header, ',')) {
+	        $h = preg_split('/, /', $header);
+	        foreach ($h as $key => $value) {
+	            if($key == 0) {
+	                $header = $value . ',<br>';
+                } else if((count($h) - 1) == $key) {
+	                $header .= $value;
+                } else {
+		            $header .= $value . ',<br>';
+                }
+            }
+        }
 	    $sub_header = NrwCore::get_option('jumbotron_sub_header');
 	    $content = NrwCore::get_option('jumbotron_content');
 		$btn_text = NrwCore::get_option('jumbotron_cta_btn_text');

@@ -13,6 +13,7 @@ class NrwStructureHooks {
 	public function init() {
 		add_action('nrw_action_head', array($this, 'doctype'), 5);
 		add_action('nrw_action_head', array($this, 'head'), 10);
+		add_action('wp_footer', array($this, 'inject_material_design'));
 	}
 
 	public function doctype() {
@@ -29,6 +30,10 @@ class NrwStructureHooks {
 			<?php wp_head(); ?>
 		</head>
 	<?php }
+
+	public function inject_material_design() {
+	    ?> <script>jQuery(document).ready(function() { jQuery('body').bootstrapMaterialDesign(); });</script> <?php
+    }
 
 }
 $nrwstructurehooks = new NrwStructureHooks();

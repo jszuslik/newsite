@@ -32,6 +32,7 @@ class NrwInit {
 		nrw_require_file(NRW_CORE_PATH . 'customizer/sections/template-meta/NrwTaglineMetaTemplate.php');
 		nrw_require_file(NRW_CORE_PATH . 'customizer/sections/template-meta/NrwFunnelsMetaTemplate.php');
 		nrw_require_file(NRW_CORE_PATH . 'customizer/sections/template-meta/NrwIntroMetaTemplate.php');
+		nrw_require_file(NRW_CORE_PATH . 'customizer/sections/template-meta/NrwChooseMetaTemplate.php');
 		nrw_require_file(NRW_CORE_PATH . 'customizer/sections/template-meta/NrwProcessMetaTemplate.php');
 
 		nrw_require_file(NRW_CORE_PATH . 'meta-templates/NrwServicesPageMeta.php');

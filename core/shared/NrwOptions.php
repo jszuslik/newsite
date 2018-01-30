@@ -96,7 +96,8 @@ class NrwOptions {
 			'tagline'            => __( 'Tagline Display', NRW_TXT_DOMAIN),
 			'three-col-fun'      => __( 'Three Column Funnel', NRW_TXT_DOMAIN),
 			'intro_cta'          => __( 'Intro CTA', NRW_TXT_DOMAIN ),
-			'process_section'    => __( 'Process Section', NRW_TXT_DOMAIN)
+			'process_section'    => __( 'Process Section', NRW_TXT_DOMAIN),
+			'choose_us'    => __( 'Choose Us Section', NRW_TXT_DOMAIN)
 		);
 
 		$output = apply_filters('nrw_filter_hpsection_templates', $choices);

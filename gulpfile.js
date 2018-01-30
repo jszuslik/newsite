@@ -31,6 +31,7 @@ function errorLog(error) {
 // Concat task
 var jsPopper = 'src/js/popper/*.js',
     jsBootstrap = 'src/js/bootstrap/*.js',
+    jsBmd = 'src/js/bs-material/*.js',
     jsSlick = 'src/js/slick/*.js',
     jsLightBox = 'src/js/lightbox2/*.js',
     jsCustom = 'src/js/custom/*.js',
