@@ -36,8 +36,15 @@ class NrwFrontendJs {
 	public function inject_js_plumb_process_cards() {
 		?>
         <script type="text/javascript">
-            jsPlumb.bind("ready", function() {
-                var firstInstance = jsPlumb.getInstance();
+					
+					
+            jsPlumb.bind("ready", setupJsPlumb);
+					
+					
+					function setupJsPlumb() {
+                var firstInstance = jsPlumb.getInstance();	
+						jQuery(window).on("resize", jsPlumb.revalidate("jsplumb-validate"));
+						
                 var endpointOptions = {
                     isSource:true,
                     isTarget:true,
@@ -70,7 +77,7 @@ class NrwFrontendJs {
                         [ "Arrow", { width:30, height: 30, location:1, id:"arrow" } ]
                     ]
                 }, endpointOptions );
-                div1Endpoint.addOverlay([ "Arrow", { width:10, height:10, id:"arrow" }]);
+                div3Endpoint.addOverlay([ "Arrow", { width:10, height:10, id:"arrow" }]);
                 var div4Endpoint = jsPlumb.addEndpoint('nrw-card-3', {
                     endpoint: "Blank",
                     anchor:"Left"
@@ -87,7 +94,7 @@ class NrwFrontendJs {
                         [ "Arrow", { width:30, height: 30, location:1, id:"arrow" } ]
                     ]
                 }, endpointOptions );
-                div1Endpoint.addOverlay([ "Arrow", { width:10, height:10, id:"arrow" }]);
+                div5Endpoint.addOverlay([ "Arrow", { width:10, height:10, id:"arrow" }]);
                 var div6Endpoint = jsPlumb.addEndpoint('nrw-card-4', {
                     endpoint: "Blank",
                     anchor:"Left"
@@ -104,7 +111,8 @@ class NrwFrontendJs {
                         [ "Arrow", { width:30, height: 30, location:1, id:"arrow" } ]
                     ]
                 }, endpointOptions );
-                div1Endpoint.addOverlay([ "Arrow", { width:10, height:10, id:"arrow" }]);
+							
+                div7Endpoint.addOverlay([ "Arrow", { width:10, height:10, id:"arrow" }]);
                 var div8Endpoint = jsPlumb.addEndpoint('nrw-card-5', {
                     endpoint: "Blank",
                     anchor:"Left"
@@ -113,11 +121,45 @@ class NrwFrontendJs {
                     source: div7Endpoint,
                     target: div8Endpoint
                 });
-                
-            });
-            function Repaint(){
-                jsPlumb.repaintEverything();
+							
+							var div9Endpoint = jsPlumb.addEndpoint('nrw-card-5', {
+                    endpoint: "Blank",
+                    anchor:"Right",
+                    connectorOverlays:[
+                        [ "Arrow", { width:30, height: 30, location:1, id:"arrow" } ]
+                    ]
+                }, endpointOptions );
+							
+                div9Endpoint.addOverlay([ "Arrow", { width:10, height:10, id:"arrow" }]);
+                var div10Endpoint = jsPlumb.addEndpoint('nrw-card-6', {
+                    endpoint: "Blank",
+                    anchor:"Left"
+                }, endpointOptions );
+                firstInstance.connect({
+                    source: div9Endpoint,
+                    target: div10Endpoint
+                });
+							
+							var div11Endpoint = jsPlumb.addEndpoint('nrw-card-6', {
+                    endpoint: "Blank",
+                    anchor:"Right",
+                    connectorOverlays:[
+                        [ "Arrow", { width:30, height: 30, location:1, id:"arrow" } ]
+                    ]
+                }, endpointOptions );
+							
+                div11Endpoint.addOverlay([ "Arrow", { width:10, height:10, id:"arrow" }]);
+                var div12Endpoint = jsPlumb.addEndpoint('nrw-card-7', {
+                    endpoint: "Blank",
+                    anchor:"Left"
+                }, endpointOptions );
+                firstInstance.connect({
+                    source: div11Endpoint,
+                    target: div12Endpoint
+                });
+								
             }
+					
 
         </script>
         <?php

@@ -138,7 +138,7 @@ class NrwSectionHooks {
         <section id="<?php echo $id; ?>" class="nrw-process-section-wrapper">
             <div class="nrw-process-section">
                 <div class="container-fluid" style="background: <?php echo $bg_color; ?>;">
-                    <div class="row">
+                    <div id="jsplumb-validate" class="row">
                         <div class="col-12">
                             <h2 class="nrw-process-header">
 			                    <?php echo $header; ?>

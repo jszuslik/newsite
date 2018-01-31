@@ -3,7 +3,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 do_action('nrw_action_head');
 ?>
-<body id="nrw-body" <?php body_class(); ?> onresize="Repaint()">
+<body id="nrw-body" <?php body_class(); ?>>
 
 <?php
 do_action('nrw_action_before_header');
