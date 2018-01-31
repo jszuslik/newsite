@@ -34,11 +34,12 @@ var jsPopper = 'src/js/popper/*.js',
     jsBmd = 'src/js/bs-material/*.js',
     jsSlick = 'src/js/slick/*.js',
     jsLightBox = 'src/js/lightbox2/*.js',
+    jsPlumb = 'src/js/jsplumb/jsplumb.js',
     jsCustom = 'src/js/custom/*.js',
     jsDest = 'assets/js';
 
 gulp.task('scripts', function() {
-    return gulp.src([jsPopper, jsBootstrap, jsSlick, jsLightBox, jsCustom])
+    return gulp.src([jsPopper, jsBootstrap, jsSlick, jsPlumb, jsCustom])
         .pipe(concat('scripts.js'))
         .pipe(gulp.dest(jsDest))
         .pipe(rename('scripts.min.js'))

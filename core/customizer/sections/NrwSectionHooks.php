@@ -152,8 +152,8 @@ class NrwSectionHooks {
 	            $col = 'col-md-3';
             }
             ?>
-                        <div class="col-6 <?php echo $col; ?>">
-                            <div class="card nrw-card">
+<!--                        <div class="col-6 --><?php //echo $col; ?><!--">-->
+                            <div id="nrw-card-<?php echo $ph_i; ?>" class="card nrw-card">
                                 <div class="card-header">
                                     <img class="card-img-top style-svg" src="<?php echo $phase['icon']; ?>">
                                     <h5 class="card-title"><?php echo $phase['title']; ?></h5>
@@ -162,7 +162,7 @@ class NrwSectionHooks {
                                     <p class="card-text"><?php echo $phase['content']; ?></p>
                                 </div>
                             </div>
-                        </div>
+<!--                        </div>-->
 		<?php
         $ph_i++;
         endforeach; ?>

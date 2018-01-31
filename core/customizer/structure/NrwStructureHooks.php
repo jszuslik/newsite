@@ -13,7 +13,7 @@ class NrwStructureHooks {
 	public function init() {
 		add_action('nrw_action_head', array($this, 'doctype'), 5);
 		add_action('nrw_action_head', array($this, 'head'), 10);
-		add_action('wp_footer', array($this, 'inject_material_design'));
+//		add_action('wp_footer', array($this, 'inject_material_design'));
 	}
 
 	public function doctype() {
