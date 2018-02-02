@@ -8,7 +8,6 @@
 
 	.nrw-card {
 	  position: relative;
-	  width: 18rem;
 	  margin: 50px auto;
 	  min-height: 300px;
 
@@ -84,7 +83,14 @@
 }
 
 @include media-breakpoint-up(lg) {
+	
 }
 
 @include media-breakpoint-up(xl) {
+	.nrw-process-section-wrapper {
+
+		.nrw-card {
+				width: 18rem;
+		}
+	}
 }

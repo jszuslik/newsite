@@ -12270,7 +12270,6 @@ button {
 
 .nrw-process-section-wrapper .nrw-card {
   position: relative;
-  width: 18rem;
   margin: 50px auto;
   min-height: 300px;
 }
@@ -12335,6 +12334,12 @@ button {
   text-transform: uppercase;
   font-family: "Montserrat", sans-serif;
   font-weight: 700;
+}
+
+@media (min-width: 1200px) {
+  .nrw-process-section-wrapper .nrw-card {
+    width: 18rem;
+  }
 }
 
 .nrw-choose-us-section {
