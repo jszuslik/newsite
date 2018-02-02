@@ -48,7 +48,7 @@ class NrwFrontendJs {
                     isSource:true,
                     isTarget:true,
                     connector : "Flowchart",
-                    connectorStyle: { strokeWidth:4, stroke:'#FC5130' },
+                    connectorStyle: { strokeWidth:2, stroke:'#FC5130' },
                     dragAllowedWhenFull:false,
 										connectorOverlays:[
 															[ "Arrow", { width:30, height: 30, location:1, id:"arrow" } ]

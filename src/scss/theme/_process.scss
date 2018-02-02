@@ -1,12 +1,16 @@
 @include media-breakpoint-up(xs) {
+	.jtk-connector {
+		margin-top: 30px;
+		margin-bottom: 50px;
+	}
   .nrw-process-section-wrapper {
 	padding: 75px 0;
 
 	.nrw-card {
 	  position: relative;
-	  max-width: 22rem;
-	  margin: 30px 70px;
-	  min-height: 350px;
+	  width: 18rem;
+	  margin: 50px auto;
+	  min-height: 300px;
 
 	  .card-header {
 		padding: 4rem 1.25rem 0;

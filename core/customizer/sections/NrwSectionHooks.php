@@ -147,12 +147,12 @@ class NrwSectionHooks {
 		<?php
         $ph_i = 1;
         foreach ($phase_arr as $phase) :
-            $col = 'col-md-4';
+            $col = 'col-lg-4';
             if($ph_i <=4) {
-	            $col = 'col-md-3';
+	            $col = 'col-lg-3';
             }
             ?>
-<!--                        <div class="col-6 --><?php //echo $col; ?><!--">-->
+                       <div class="col-12 col-sm-6 <?php echo $col; ?>">
                             <div id="nrw-card-<?php echo $ph_i; ?>" class="card nrw-card">
                                 <div class="card-header">
                                     <img class="card-img-top style-svg" src="<?php echo $phase['icon']; ?>">
@@ -162,32 +162,10 @@ class NrwSectionHooks {
                                     <p class="card-text"><?php echo $phase['content']; ?></p>
                                 </div>
                             </div>
-<!--                        </div>-->
+                       </div>
 		<?php
         $ph_i++;
         endforeach; ?>
-                    </div>
-                    <div class="row">
-                        <div class="col-12">
-                            <h2 class="nrw-process-header">
-	                            <?php echo $header; ?>
-                            </h2>
-                        </div>
-                        <?php foreach ($phase_arr as $phase) : ?>
-                        <div class="col-sm-6">
-                            <div class="nrw-process-outer-wrapper">
-                                <div class="nrw-process-inner-wrapper">
-                                    <div class="nrw-process-icon-wrapper">
-                                        <img src="<?php echo $phase['icon']; ?>" class="style-svg" />
-                                    </div>
-                                    <div class="nrw-process-content-wrapper">
-                                        <h3 class="nrw-process-content-header"><?php echo $phase['title']; ?></h3>
-                                        <p><?php echo $phase['content']; ?></p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-            <?php endforeach; ?>
                     </div>
                 </div>
             </div>
