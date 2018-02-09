@@ -17,6 +17,7 @@ class NrwSectionHooks {
 		add_action('nrw_intro_cta_action', array($this, 'intro_cta'), 10);
 		add_action('nrw_process_section_action', array($this, 'process_section'), 10);
 		add_action('nrw_choose_us_section_action', array($this, 'choose_us_section'), 10);
+		add_action('nrw_choose_images_section_action', array($this, 'choose_images_section'), 10);
 
 	}
 
@@ -47,6 +48,9 @@ class NrwSectionHooks {
                     case 'choose_us':
                         do_action('nrw_choose_us_section_action');
                         break;
+					case 'choose_images':
+						do_action('nrw_choose_images_section_action');
+						break;
 				}
 
 			}
@@ -56,6 +60,67 @@ class NrwSectionHooks {
 
 		$post = $orig_post;
 	}
+
+	public function choose_images_section() {
+		global $post;
+		$meta = get_post_meta( $post->ID );
+		$id = $meta['nrw_section_id'][0];
+
+		$choices = 4;
+		$choice_arr = array();
+		for($i = 1; $i <= $choices; $i++) {
+			if(isset($meta['nrw_choice_'. $i . '_title'][0]) &&
+			   isset($meta['nrw_choice_'. $i . '_content'][0]) &&
+			   isset($meta['nrw_choice_'. $i . '_image'][0])) {
+				$choice_arr[] = array(
+					'title'       => $meta['nrw_choice_'. $i . '_title'][0],
+					'content'     => $meta['nrw_choice_'. $i . '_content'][0],
+					'icon'        => $meta['nrw_choice_'. $i . '_image'][0]
+				);
+			}
+		}
+
+		?>
+        <section id="<?php echo $id; ?>" class="nrw-choose-images-section-wrapper"  style="background: <?php echo $bg_color; ?>;">
+            <div class="nrw-choose-us-section">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-6 col-md-8">
+                            <div class="nrw-image-outer-wrapper">
+                                <div class="nrw-image-inner-wrapper">
+                                    <img src="http://newsite.dev/wp-content/uploads/2018/02/collaborative-custom-design-focused-on-obtaining-leads.jpg" class="img-fluid">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-4">
+                            <div class="nrw-image-outer-wrapper">
+                                <div class="nrw-image-inner-wrapper">
+                                    <img src="http://newsite.dev/wp-content/uploads/2018/02/seo.jpg" class="img-fluid">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6 col-md-4">
+                            <div class="nrw-image-outer-wrapper">
+                                <div class="nrw-image-inner-wrapper">
+                                    <img src="http://newsite.dev/wp-content/uploads/2018/02/custom-code.jpg" class="img-fluid">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-8">
+                            <div class="nrw-image-outer-wrapper">
+                                <div class="nrw-image-inner-wrapper">
+                                    <img src="http://newsite.dev/wp-content/uploads/2018/02/responsive-design.jpg" class="img-fluid">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+	<?php }
 
 	public function choose_us_section() {
 		global $post;
@@ -136,9 +201,9 @@ class NrwSectionHooks {
         }
 		?>
         <section id="<?php echo $id; ?>" class="nrw-process-section-wrapper">
-            <div class="nrw-process-section">
+            <div id="nrw-process-section">
                 <div class="container-fluid" style="background: <?php echo $bg_color; ?>;">
-                    <div id="jsplumb-validate" class="row">
+                    <div class="row">
                         <div class="col-12">
                             <h2 class="nrw-process-header">
 			                    <?php echo $header; ?>

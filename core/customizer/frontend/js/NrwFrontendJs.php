@@ -36,36 +36,44 @@ class NrwFrontendJs {
 	public function inject_js_plumb_process_cards() {
 		?>
         <script type="text/javascript">
+
 					
-					
-            jsPlumb.bind("ready", setupJsPlumb);
+            jsPlumb.ready(setupJsPlumb);
 					
 					
 					function setupJsPlumb() {
-            var instance = jsPlumb.getInstance();
-						instance.setContainer(document.getElementById("jsplumb-validate"));
-						var endpointOptions = {
-                    isSource:true,
-                    isTarget:true,
-                    connector : "Flowchart",
-                    connectorStyle: { strokeWidth:2, stroke:'#FC5130' },
-                    dragAllowedWhenFull:false,
-										connectorOverlays:[
-															[ "Arrow", { width:30, height: 30, location:1, id:"arrow" } ]
-													],
-										reattachConnections: true 
-                };
-						
+                        var instance = jsPlumb.getInstance();
+                        instance.setContainer(document.getElementById("nrw-process-section"));
+                        var endpointOptions1 = {
+                            isSource:true,
+                            isTarget:false,
+                            connector : "Flowchart",
+                            connectorStyle: { strokeWidth:2, stroke:'#FC5130' },
+                            dragAllowedWhenFull:false,
+                            connectorOverlays:[
+                                [ "Arrow", { width:30, height: 30, location:1, id:"arrow" } ]
+                            ],
+                            reattachConnections: true
+                        };
+
+                        var endpointOptions2 = {
+                            isSource:false,
+                            isTarget:true,
+                            connector : "Flowchart",
+                            connectorStyle: { strokeWidth:2, stroke:'#FC5130' },
+                            dragAllowedWhenFull:false,
+                            reattachConnections: true
+                        };
 						
 						var div1Endpoint = instance.addEndpoint('nrw-card-1', {
 								endpoint: "Blank",
 								anchor:"Right"
-						}, endpointOptions );
+						}, endpointOptions1 );
 
 						var div2Endpoint = instance.addEndpoint('nrw-card-2', {
 								endpoint: "Blank",
 								anchor:"Left"
-						}, endpointOptions );
+						}, endpointOptions2);
 						
 						instance.connect({
 								source: div1Endpoint,
@@ -75,12 +83,12 @@ class NrwFrontendJs {
 						var div3Endpoint = instance.addEndpoint('nrw-card-2', {
 								endpoint: "Blank",
 								anchor:"Right"
-						}, endpointOptions );
+						}, endpointOptions1 );
 
 						var div4Endpoint = instance.addEndpoint('nrw-card-3', {
 								endpoint: "Blank",
 								anchor:"Left"
-						}, endpointOptions );
+						}, endpointOptions2 );
 						
 						instance.connect({
 								source: div3Endpoint,
@@ -90,12 +98,12 @@ class NrwFrontendJs {
 						var div5Endpoint = instance.addEndpoint('nrw-card-3', {
 								endpoint: "Blank",
 								anchor:"Right"
-						}, endpointOptions );
+						}, endpointOptions1 );
 
 						var div6Endpoint = instance.addEndpoint('nrw-card-4', {
 								endpoint: "Blank",
 								anchor:"Left"
-						}, endpointOptions );
+						}, endpointOptions2 );
 
 						instance.connect({
 								source: div5Endpoint,
@@ -105,12 +113,12 @@ class NrwFrontendJs {
 						var div7Endpoint = instance.addEndpoint('nrw-card-4', {
 								endpoint: "Blank",
 								anchor:"Right"
-						}, endpointOptions );
+						}, endpointOptions1 );
 
 						var div8Endpoint = instance.addEndpoint('nrw-card-5', {
 								endpoint: "Blank",
 								anchor:"Left"
-						}, endpointOptions );
+						}, endpointOptions2 );
 
 						instance.connect({
 								source: div7Endpoint,
@@ -120,12 +128,12 @@ class NrwFrontendJs {
 						var div9Endpoint = instance.addEndpoint('nrw-card-5', {
 								endpoint: "Blank",
 								anchor:"Right"
-						}, endpointOptions );
+						}, endpointOptions1 );
 
 						var div10Endpoint = instance.addEndpoint('nrw-card-6', {
 								endpoint: "Blank",
 								anchor:"Left"
-						}, endpointOptions );
+						}, endpointOptions2 );
 
 						instance.connect({
 								source: div9Endpoint,
@@ -135,12 +143,12 @@ class NrwFrontendJs {
 						var div11Endpoint = instance.addEndpoint('nrw-card-6', {
 								endpoint: "Blank",
 								anchor:"Right"
-						}, endpointOptions );
+						}, endpointOptions1 );
 
 						var div12Endpoint = instance.addEndpoint('nrw-card-7', {
 								endpoint: "Blank",
 								anchor:"Left"
-						}, endpointOptions );
+						}, endpointOptions2 );
 
 						instance.connect({
 								source: div11Endpoint,
@@ -148,9 +156,11 @@ class NrwFrontendJs {
 						});
 						
 						jQuery( window ).resize(function() {
-								instance.repaintEverything("jsplumb-validate");
+								instance.repaintEverything();
 						});
-								
+                        jQuery(document).on("scroll", function(){
+                            instance.repaintEverything();
+                        });
           }
 					
 
