@@ -90,7 +90,14 @@ class NrwSectionHooks {
                             <div class="nrw-image-outer-wrapper">
                                 <div class="nrw-image-inner-wrapper">
                                     <img src="http://newsite.dev/wp-content/uploads/2018/02/collaborative-custom-design-focused-on-obtaining-leads.jpg" width="844" height="530">
-                                </div>
+																		<div class="nrw-choose-img-overlay-outer overlay-right">
+																				<div class="nrw-choose-img-overlay-inner">
+																					<h2>
+																						Test Header
+																					</h2>
+																				</div>
+																		</div>
+																</div>
                             </div>
                         </div>
                         <div class="col-6 col-md-4">
