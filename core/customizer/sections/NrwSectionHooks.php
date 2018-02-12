@@ -104,6 +104,13 @@ class NrwSectionHooks {
                             <div class="nrw-image-outer-wrapper">
                                 <div class="nrw-image-inner-wrapper">
                                     <img src="http://newsite.dev/wp-content/uploads/2018/02/seo.jpg" width="417" height="530">
+																		<div class="nrw-choose-img-overlay-outer overlay-bottom">
+																				<div class="nrw-choose-img-overlay-inner">
+																					<h2>
+																						Test Header
+																					</h2>
+																				</div>
+																		</div>
                                 </div>
                             </div>
                         </div>
