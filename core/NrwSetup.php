@@ -58,6 +58,7 @@ class NrwSetup {
 		) );
 
 		add_image_size('nrw_funnel_8', 844, 530);
+		add_image_size('nrw_funnel_4', 417, 530);
 
 
 		register_nav_menus(

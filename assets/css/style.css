@@ -12374,6 +12374,18 @@ button {
   font-weight: 600;
 }
 
+.nrw-choose-images-section-wrapper .nrw-choose-us-section .nrw-image-outer-wrapper {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  overflow: hidden;
+}
+
+.nrw-choose-images-section-wrapper .nrw-choose-us-section .nrw-image-outer-wrapper .col-md-8,
+.nrw-choose-images-section-wrapper .nrw-choose-us-section .nrw-image-outer-wrapper .col-md-4 {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
 #nrw-page-jumbotron .nrw-page-header-wrapper {
   margin-top: 180px;
   margin-bottom: 110px;

@@ -30,6 +30,24 @@
 	  }
 	}
   }
+
+  .nrw-choose-images-section-wrapper {
+
+	.nrw-choose-us-section {
+
+	  .nrw-image-outer-wrapper {
+		margin-top: 15px;
+		margin-bottom: 15px;
+		overflow: hidden;
+
+		.col-md-8,
+		.col-md-4 {
+		  padding-left: 10px;
+		  padding-right: 10px;
+		}
+	  }
+	}
+  }
 }
 
 @include media-breakpoint-up(sm) {

@@ -65,6 +65,7 @@ class NrwSectionHooks {
 		global $post;
 		$meta = get_post_meta( $post->ID );
 		$id = $meta['nrw_section_id'][0];
+		$bg_color = $meta['base_bg_color'][0];
 
 		$choices = 4;
 		$choice_arr = array();
@@ -83,35 +84,33 @@ class NrwSectionHooks {
 		?>
         <section id="<?php echo $id; ?>" class="nrw-choose-images-section-wrapper"  style="background: <?php echo $bg_color; ?>;">
             <div class="nrw-choose-us-section">
-                <div class="container">
+                <div class="container" style="padding: 0;">
                     <div class="row">
                         <div class="col-6 col-md-8">
                             <div class="nrw-image-outer-wrapper">
                                 <div class="nrw-image-inner-wrapper">
-                                    <img src="http://newsite.dev/wp-content/uploads/2018/02/collaborative-custom-design-focused-on-obtaining-leads.jpg" class="img-fluid">
+                                    <img src="http://newsite.dev/wp-content/uploads/2018/02/collaborative-custom-design-focused-on-obtaining-leads.jpg" width="844" height="530">
                                 </div>
                             </div>
                         </div>
                         <div class="col-6 col-md-4">
                             <div class="nrw-image-outer-wrapper">
                                 <div class="nrw-image-inner-wrapper">
-                                    <img src="http://newsite.dev/wp-content/uploads/2018/02/seo.jpg" class="img-fluid">
+                                    <img src="http://newsite.dev/wp-content/uploads/2018/02/seo.jpg" width="417" height="530">
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="row">
                         <div class="col-6 col-md-4">
                             <div class="nrw-image-outer-wrapper">
                                 <div class="nrw-image-inner-wrapper">
-                                    <img src="http://newsite.dev/wp-content/uploads/2018/02/custom-code.jpg" class="img-fluid">
+                                    <img src="http://newsite.dev/wp-content/uploads/2018/02/custom-code.jpg" width="417" height="530">
                                 </div>
                             </div>
                         </div>
                         <div class="col-6 col-md-8">
                             <div class="nrw-image-outer-wrapper">
                                 <div class="nrw-image-inner-wrapper">
-                                    <img src="http://newsite.dev/wp-content/uploads/2018/02/responsive-design.jpg" class="img-fluid">
+                                    <img src="http://newsite.dev/wp-content/uploads/2018/02/responsive-design.jpg" width="844" height="530">
                                 </div>
                             </div>
                         </div>
