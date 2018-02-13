@@ -90,27 +90,33 @@ class NrwSectionHooks {
                             <div class="nrw-image-outer-wrapper">
                                 <div class="nrw-image-inner-wrapper">
                                     <img src="http://newsite.dev/wp-content/uploads/2018/02/collaborative-custom-design-focused-on-obtaining-leads.jpg" width="844" height="530">
-																		<div class="nrw-choose-img-overlay-outer overlay-right">
-																				<div class="nrw-choose-img-overlay-inner">
-																					<h2>
-																						Test Header
-																					</h2>
-																				</div>
-																		</div>
-																</div>
+                                    <div class="nrw-choose-img-overlay-outer overlay-right" style="background-color: #03a9f4">
+                                        <div class="nrw-choose-img-overlay-inner">
+                                            <h3>
+                                                Lead Focused
+                                            </h3>
+                                            <p>
+                                                We've worked with this amazing organisation on interpretation panels, illustrations and design for print for projects at home and across the world
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div class="col-6 col-md-4">
                             <div class="nrw-image-outer-wrapper">
                                 <div class="nrw-image-inner-wrapper">
                                     <img src="http://newsite.dev/wp-content/uploads/2018/02/seo.jpg" width="417" height="530">
-																		<div class="nrw-choose-img-overlay-outer overlay-bottom">
-																				<div class="nrw-choose-img-overlay-inner">
-																					<h2>
-																						Test Header
-																					</h2>
-																				</div>
-																		</div>
+                                    <div class="nrw-choose-img-overlay-outer overlay-bottom" style="background-color: #FC5130">
+                                        <div class="nrw-choose-img-overlay-inner">
+                                            <h3>
+                                                Search Engine Optimization
+                                            </h3>
+                                            <p>
+                                                We've worked with this amazing organisation on interpretation panels, illustrations and design for print for projects at home and across the world
+                                            </p>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -118,6 +124,16 @@ class NrwSectionHooks {
                             <div class="nrw-image-outer-wrapper">
                                 <div class="nrw-image-inner-wrapper">
                                     <img src="http://newsite.dev/wp-content/uploads/2018/02/custom-code.jpg" width="417" height="530">
+                                    <div class="nrw-choose-img-overlay-outer overlay-bottom" style="background-color: #FC5130">
+                                        <div class="nrw-choose-img-overlay-inner">
+                                            <h3>
+                                                Custom Code
+                                            </h3>
+                                            <p>
+                                                We've worked with this amazing organisation on interpretation panels, illustrations and design for print for projects at home and across the world
+                                            </p>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -125,6 +141,16 @@ class NrwSectionHooks {
                             <div class="nrw-image-outer-wrapper">
                                 <div class="nrw-image-inner-wrapper">
                                     <img src="http://newsite.dev/wp-content/uploads/2018/02/responsive-design.jpg" width="844" height="530">
+                                    <div class="nrw-choose-img-overlay-outer overlay-right" style="background-color: #03a9f4">
+                                        <div class="nrw-choose-img-overlay-inner">
+                                            <h3>
+                                                Responsive Design
+                                            </h3>
+                                            <p>
+                                                We've worked with this amazing organisation on interpretation panels, illustrations and design for print for projects at home and across the world
+                                            </p>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -215,13 +241,21 @@ class NrwSectionHooks {
 		?>
         <section id="<?php echo $id; ?>" class="nrw-process-section-wrapper">
             <div id="nrw-process-section">
-                <div class="container-fluid" style="background: <?php echo $bg_color; ?>;">
+                <div class="container" style="background: <?php echo $bg_color; ?>;">
                     <div class="row">
                         <div class="col-12">
-                            <h2 class="nrw-process-header">
-			                    <?php echo $header; ?>
-                            </h2>
+                            <div class="nrw-process-header-wrapper">
+                                <div class="nrw-action-bar">
+                                    <div class="nrw-action-bar-slot">
+	                                    <span><?php echo $header; ?></span>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
+                    </div>
+                </div>
+                <div class="container-fluid" style="background: <?php echo $bg_color; ?>;">
+                    <div class="row">
 		<?php
         $ph_i = 1;
         foreach ($phase_arr as $phase) :
