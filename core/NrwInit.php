@@ -13,6 +13,11 @@ class NrwInit {
 
 		nrw_require_file(NRW_CORE_PATH . 'NrwCore.php');
 		nrw_require_file(NRW_CORE_PATH . 'shared/NrwOptions.php');
+
+		nrw_require_file(NRW_CORE_PATH . 'objects/NrwBaseImage.php');
+		nrw_require_file(NRW_CORE_PATH . 'objects/NrwBaseSection.php');
+		nrw_require_file(NRW_CORE_PATH . 'objects/NrwChoiceImageSection.php');
+
 		nrw_require_file(NRW_CORE_PATH . 'custom-post-types/alerts/NrwAlertsPostType.php');
 		nrw_require_file(NRW_CORE_PATH . 'custom-post-types/hpsections/NrwHomepageSectionsPostType.php');
 		nrw_require_file(NRW_CORE_PATH . 'custom-post-types/locations-served/NrwLocationsServedPostType.php');

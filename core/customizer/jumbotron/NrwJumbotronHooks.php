@@ -82,10 +82,10 @@ class NrwJumbotronHooks {
                     </div>
                     <div class="col-12 col-md-6">
                         <div class="jumbo-video-wrapper">
-                            <video class="video-background" preload="" muted="" autoplay="" loop="">
-                                <source src="<?php echo wp_get_attachment_url($mp4); ?>" type="video/mp4">
-                                <source src="<?php echo wp_get_attachment_url($ogg); ?>" type="video/ogg">
-                            </video>
+<!--                            <video class="video-background" preload="" muted="" autoplay="" loop="">-->
+<!--                                <source src="--><?php //echo wp_get_attachment_url($mp4); ?><!--" type="video/mp4">-->
+<!--                                <source src="--><?php //echo wp_get_attachment_url($ogg); ?><!--" type="video/ogg">-->
+<!--                            </video>-->
                         </div>
                     </div>
                 </div>

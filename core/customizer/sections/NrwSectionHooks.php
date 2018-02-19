@@ -61,99 +61,107 @@ class NrwSectionHooks {
 		$post = $orig_post;
 	}
 
+	private function determine_image_size($column) {
+	    switch($column) {
+            case 4:
+                return array(
+                        'width' => '417',
+                        'height' => '530'
+                );
+		    case 8:
+			    return array(
+				    'width' => '844',
+				    'height' => '530'
+			    );
+        }
+    }
+
+    private function determine_overlay_position($column) {
+	    switch ($column) {
+		    case 1:
+			    return 'right';
+		    case 2:
+			    return 'bottom';
+		    case 3:
+			    return 'top';
+		    case 4:
+			    return 'right';
+	    }
+    }
+
+	private function determine_overlay_color($column) {
+		switch ($column) {
+			case 8:
+				return '#03a9f4';
+			case 4:
+				return '#FC5130';
+		}
+	}
+
+	private function determine_column($column) {
+	    switch ($column) {
+            case 1:
+                return '8';
+            case 2:
+                return '4';
+            case 3:
+                return '4';
+            case 4:
+                return '8';
+        }
+    }
+
 	public function choose_images_section() {
 		global $post;
 		$meta = get_post_meta( $post->ID );
-		$id = $meta['nrw_section_id'][0];
-		$bg_color = $meta['base_bg_color'][0];
+		$image_section = new NrwChoiceImageSection();
+		$image_section->__set('id', $meta['nrw_section_id'][0]);
+		$image_section->__set('bg_color', $meta['base_bg_color'][0]);
 
 		$choices = 4;
 		$choice_arr = array();
 		for($i = 1; $i <= $choices; $i++) {
-			if(isset($meta['nrw_choice_'. $i . '_title'][0]) &&
-			   isset($meta['nrw_choice_'. $i . '_content'][0]) &&
-			   isset($meta['nrw_choice_'. $i . '_image'][0])) {
-				$choice_arr[] = array(
-					'title'       => $meta['nrw_choice_'. $i . '_title'][0],
-					'content'     => $meta['nrw_choice_'. $i . '_content'][0],
-					'icon'        => $meta['nrw_choice_'. $i . '_image'][0]
-				);
-			}
+		    $choice = new NrwBaseImage();
+		    $choice->__set('title', $meta['nrw_choice_'. $i . '_title'][0]);
+		    $choice->__set('content',$meta['nrw_choice_'. $i . '_content'][0]);
+		    $choice->__set('image_url', $meta['nrw_choice_'. $i . '_image'][0]);
+		    $column = $this->determine_column($i);
+		    $choice->__set('md_col', $column);
+		    $choice->__set('image_size', $this->determine_image_size($column));
+			$choice->__set('overlay_pos', $this->determine_overlay_position($i));
+			$choice->__set('overlay_color', $this->determine_overlay_color($column));
+			$choice_arr[] = $choice;
+		    $image_section->__set('choices', $choice_arr);
 		}
 
 		?>
-        <section id="<?php echo $id; ?>" class="nrw-choose-images-section-wrapper"  style="background: <?php echo $bg_color; ?>;">
+        <section id="<?php echo $image_section->__get('id'); ?>" class="nrw-choose-images-section-wrapper"  style="background: <?php echo $image_section->__get('bg_color'); ?>;">
             <div class="nrw-choose-us-section">
                 <div class="container" style="padding: 0;">
                     <div class="row">
-                        <div class="col-6 col-md-8">
-                            <div class="nrw-image-outer-wrapper">
-                                <div class="nrw-image-inner-wrapper">
-                                    <img src="http://newsite.dev/wp-content/uploads/2018/02/collaborative-custom-design-focused-on-obtaining-leads.jpg" width="844" height="530">
-                                    <div class="nrw-choose-img-overlay-outer overlay-right" style="background-color: #03a9f4">
-                                        <div class="nrw-choose-img-overlay-inner">
-                                            <h3>
-                                                Lead Focused
-                                            </h3>
-                                            <p>
-                                                We've worked with this amazing organisation on interpretation panels, illustrations and design for print for projects at home and across the world
-                                            </p>
-                                        </div>
+                        <?php foreach ($image_section->__get('choices') as $choice) : ?>
+                            <div class="col-6 col-md-<?php echo $choice->__get('md_col'); ?>">
+                                <div class="nrw-image-outer-wrapper">
+                                    <div class="nrw-image-inner-wrapper">
+                                        <a href="#">
+                                            <?php $nrw_image_size = 'nrw_funnel_' . $choice->__get('md_col'); ?>
+                                            <?php $image_size = $choice->__get('image_size'); ?>
+                                            <?php echo $image_section->return_responsive_image_set($choice->__get('image_url'), $nrw_image_size, $image_size['width'], $image_size['height'], false); ?>
+                                            <div class="nrw-choose-img-overlay-outer overlay-<?php echo $choice->__get('overlay_pos'); ?>" style="background-color: <?php echo $choice->__get('overlay_color'); ?>">
+                                                <div class="nrw-choose-img-overlay-inner">
+                                                    <h3>
+	                                                    <?php echo $choice->__get('title'); ?>
+                                                    </h3>
+                                                    <p>
+	                                                    <?php echo $choice->__get('content'); ?>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </a>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-6 col-md-4">
-                            <div class="nrw-image-outer-wrapper">
-                                <div class="nrw-image-inner-wrapper">
-                                    <img src="http://newsite.dev/wp-content/uploads/2018/02/seo.jpg" width="417" height="530">
-                                    <div class="nrw-choose-img-overlay-outer overlay-bottom" style="background-color: #FC5130">
-                                        <div class="nrw-choose-img-overlay-inner">
-                                            <h3>
-                                                Search Engine Optimization
-                                            </h3>
-                                            <p>
-                                                We've worked with this amazing organisation on interpretation panels, illustrations and design for print for projects at home and across the world
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-6 col-md-4">
-                            <div class="nrw-image-outer-wrapper">
-                                <div class="nrw-image-inner-wrapper">
-                                    <img src="http://newsite.dev/wp-content/uploads/2018/02/custom-code.jpg" width="417" height="530">
-                                    <div class="nrw-choose-img-overlay-outer overlay-bottom" style="background-color: #FC5130">
-                                        <div class="nrw-choose-img-overlay-inner">
-                                            <h3>
-                                                Custom Code
-                                            </h3>
-                                            <p>
-                                                We've worked with this amazing organisation on interpretation panels, illustrations and design for print for projects at home and across the world
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-6 col-md-8">
-                            <div class="nrw-image-outer-wrapper">
-                                <div class="nrw-image-inner-wrapper">
-                                    <img src="http://newsite.dev/wp-content/uploads/2018/02/responsive-design.jpg" width="844" height="530">
-                                    <div class="nrw-choose-img-overlay-outer overlay-right" style="background-color: #03a9f4">
-                                        <div class="nrw-choose-img-overlay-inner">
-                                            <h3>
-                                                Responsive Design
-                                            </h3>
-                                            <p>
-                                                We've worked with this amazing organisation on interpretation panels, illustrations and design for print for projects at home and across the world
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <?php endforeach; ?>
                     </div>
                 </div>
             </div>

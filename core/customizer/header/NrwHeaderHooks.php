@@ -104,28 +104,28 @@ class NrwHeaderHooks {
 
     private function branding_inline_menu() { ?>
             <div class="nrw-brand-inline-menu-wrapper nrw-header-bg<?php echo NrwCore::get_option('header_bg_color_select'); ?>">
-                <div class="container-fluid no-gutters">
+                <div class="<?php echo NrwCore::get_option('branding_menu_container_width'); ?> no-gutters">
                     <div class="nrw-branding-menu-wrapper">
-                        <div class="<?php echo NrwCore::get_option('branding_menu_container_width'); ?>">
+<!--                        <div class="">-->
                             <nav class="navbar navbar-expand-md nrw-navbar-inline nrw-navbar<?php echo NrwCore::get_option('navbar_color_theme'); ?> <?php echo NrwCore::get_option('navbar_alignment'); ?>">
                                 <div class="site-branding">
-		                            <?php
+                                    <?php
                                     if(!has_custom_logo()) {
                                         if(NrwCore::get_option('brand_custom_css')) {
-	                                        $title = get_bloginfo('name');
-	                                        $words = explode(' ', $title);
-	                                        $title = '';
-	                                        $count = 1;
-	                                        foreach ($words as $word) {
-		                                        $title .= '<span class="brand-word-' . $count . '">' . $word . '</span>';
-		                                        $count++;
-	                                        }
-	                                        ?><a class="navbar-brand" href="/"><h2><?php echo $title; ?></h2></a> <?php
+                                            $title = get_bloginfo('name');
+                                            $words = explode(' ', $title);
+                                            $title = '';
+                                            $count = 1;
+                                            foreach ($words as $word) {
+                                                $title .= '<span class="brand-word-' . $count . '">' . $word . '</span>';
+                                                $count++;
+                                            }
+                                            ?><a class="navbar-brand" href="/"><h2><?php echo $title; ?></h2></a> <?php
                                         } else {
                                             ?><a class="navbar-brand" href="/"><h2><?php bloginfo('name'); ?></h2></a><?php
                                         }
                                     } else { ?>
-			                            <?php the_custom_logo(); ?>
+                                        <?php the_custom_logo(); ?>
 
                                     <?php } ?>
                                 </div>
@@ -148,7 +148,7 @@ class NrwHeaderHooks {
 	                            );
 	                            ?>
                             </nav>
-                        </div>
+<!--                        </div>-->
                     </div>
                 </div>
             </div>
