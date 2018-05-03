@@ -375,6 +375,24 @@ class NrwJumbotronSetup {
 			)
 		);
 		$wp_customize->add_setting(
+			'theme_options[jumbotron_information]',
+			array(
+				'default'      => $this->default['jumbotron_information'],
+				'capability'  => 'edit_theme_options'
+			)
+		);
+		$wp_customize->add_control(
+			'theme_options[jumbotron_information]',
+			array(
+				'label'    => __( 'Jumbotron Information', NRW_TXT_DOMAIN ),
+				'section'  => 'section_jumbo',
+				'type'     => 'select',
+				'choices'  => NrwOptions::select_jumbotron_information_options(),
+				'priority' => 100,
+			)
+		);
+
+		$wp_customize->add_setting(
 			'theme_options[jumbotron_mp4_exp_upload]',
 			array(
 				'default'     => $this->default['jumbotron_mp4_exp_upload'],

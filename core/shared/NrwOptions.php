@@ -40,7 +40,19 @@ class NrwOptions {
 			'container-fluid'    => __('Full Width', NRW_TXT_DOMAIN)
 		);
 
-		$output = apply_filters('nrw_filter_menu_width_options', $choices);
+		$output = apply_filters('nrw_filter_content_width_options', $choices);
+		return $output;
+	}
+
+	public static function alignment_options() {
+
+		$choices = array(
+			'center'   => __('Center', NRW_TXT_DOMAIN),
+			'right'    => __('Right', NRW_TXT_DOMAIN),
+			'left'     => __('Left', NRW_TXT_DOMAIN)
+		);
+
+		$output = apply_filters('nrw_filter_alignment_options', $choices);
 		return $output;
 	}
 
@@ -73,6 +85,19 @@ class NrwOptions {
 		);
 
 		$output = apply_filters('nrw_filter_jumbotron_type_options', $choices);
+		return $output;
+
+	}
+
+	public static function select_jumbotron_information_options() {
+
+		$choices = array(
+			'video'            => __( 'Video', NRW_TXT_DOMAIN ),
+			'image'          => __( 'Image', NRW_TXT_DOMAIN),
+			'form'          => __( 'Form', NRW_TXT_DOMAIN)
+		);
+
+		$output = apply_filters('nrw_filter_jumbotron_information_options', $choices);
 		return $output;
 
 	}

@@ -59,8 +59,7 @@ class NrwJumbotronHooks {
 	    $sub_header = NrwCore::get_option('jumbotron_sub_header');
 	    $content = NrwCore::get_option('jumbotron_content');
 		$btn_text = NrwCore::get_option('jumbotron_cta_btn_text');
-		$mp4 = NrwCore::get_option('jumbotron_mp4_exp_upload');
-		$ogg = NrwCore::get_option('jumbotron_ogg_exp_upload');
+        $information = NrwCore::get_option('jumbotron_information');
 	    $cta_type = NrwCore::get_option('jumbotron_cta_type');
 	    $btn_link = '';
 	    switch($cta_type) {
@@ -80,26 +79,44 @@ class NrwJumbotronHooks {
                             <a class="jumbo-btn" href="<?php echo $btn_link; ?>"><?php echo $btn_text; ?></a>
                         </div>
                     </div>
-                    <div class="col-12 col-md-6">
-                        <div class="jumbo-video-wrapper">
-<!--                            <video class="video-background" preload="" muted="" autoplay="" loop="">-->
-<!--                                <source src="--><?php //echo wp_get_attachment_url($mp4); ?><!--" type="video/mp4">-->
-<!--                                <source src="--><?php //echo wp_get_attachment_url($ogg); ?><!--" type="video/ogg">-->
-<!--                            </video>-->
-                        </div>
+                    <div class="col-12 col-md-6"> <?php
+                        switch($information) {
+                            case 'video':
+                                $this->jumbotron_video();
+                                break;
+                            case 'image':
+                                $this->jumbotron_image();
+                                break;
+                            case 'form':
+                                $this->jumbotron_form();
+                                break;
+                        }
+                    ?>
                     </div>
                 </div>
             </div>
         </div>
 	<?php }
 
+	public function jumbotron_form() {
+		//do_action('nrw_action_footer_form');
+    }
+
 	public function jumbotron_image() {
 
 	}
 
 	public function jumbotron_video() {
+		$mp4 = NrwCore::get_option('jumbotron_mp4_exp_upload');
+		$ogg = NrwCore::get_option('jumbotron_ogg_exp_upload'); ?>
+        <div class="jumbo-video-wrapper">
+            <video class="video-background" preload="" muted="" autoplay="" loop="">
+                <source src="<?php echo wp_get_attachment_url($mp4); ?>" type="video/mp4">
+                <source src="<?php echo wp_get_attachment_url($ogg); ?>" type="video/ogg">
+            </video>
+        </div>
 
-	}
+	<?php }
 
 	public function jumbotron_locations_served() {
 		$custom_css = array('jumbotron-css');
